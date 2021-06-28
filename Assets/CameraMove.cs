@@ -6,16 +6,13 @@ public class CameraMove : MonoBehaviour
 {
     [SerializeField] private GameObject player=default;
     private Vector3 playerPos;
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()
     {
         playerPos = player.transform.position;
         var cameraTransform = transform;
-        cameraTransform.position = new Vector3(cameraTransform.position.x,playerPos.y+4,playerPos.z-4);
+        cameraTransform.position = new Vector3(cameraTransform.position.x,playerPos.y+5,playerPos.z-5);
     }
 }
