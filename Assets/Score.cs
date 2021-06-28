@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     //GCAlloc防止
-
     private static DG.Tweening.Core.DOGetter<int> scoreGetter;
     private static DG.Tweening.Core.DOSetter<int> scoreSetter;
 
@@ -32,7 +31,7 @@ public class Score : MonoBehaviour
         };
     }
 
-    public static void UpdateCoin(int num)
+    public static void UpdateScore(int num)
     {
         DOTween.Kill(coinTween);
         //coinTween = DOTween.To(GetScore, SetScore, num,1f);
