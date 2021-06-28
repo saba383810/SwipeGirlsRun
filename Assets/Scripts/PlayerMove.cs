@@ -6,24 +6,20 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
        Rigidbody rb;
-       private Camera mainCamera;
+       [SerializeField] private Camera mainCamera =default;
        private float playerSpeed = 0.1f;
        private int atkPoint =10;
-       
-       
+
        private void Start ()
        {
-           mainCamera = Camera.main;
            rb = GetComponent<Rigidbody>();
            AttackPoint.UpdateAttackPoint(atkPoint);
+       }
+
+       public void PlayerRun()
+       {
            StartCoroutine(RunControl());
        }
-
-       private void Update()
-       {
-          
-       }
-
 
        private IEnumerator RunControl()
        {
@@ -44,12 +40,12 @@ public class PlayerMove : MonoBehaviour
                        if (playerPos.x <= -1.5f) playerPos.x = -1.5f;
                        
                        playerPos.z += playerSpeed;
-                       rb.MovePosition(playerPos);
+                       rb.MovePosition(new Vector3(playerPos.x,transform.position.y,playerPos.z));
                        yield return null;
                    }
                }
                playerPos.z += playerSpeed;
-               rb.MovePosition(playerPos);
+               rb.MovePosition(new Vector3(playerPos.x,transform.position.y,playerPos.z));
                yield return null;
            }
        }

@@ -370,3 +370,4 @@
 /Users/saba/Document/program/Unity/SwipeGirlsAction/obj/Debug/Assembly-CSharp-firstpass.csproj.CopyComplete
 /Users/saba/Document/program/Unity/SwipeGirlsAction/obj/Debug/Assembly-CSharp-firstpass.dll
 /Users/saba/Document/program/Unity/SwipeGirlsAction/obj/Debug/Assembly-CSharp-firstpass.pdb
+/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/nunit.framework.dll
