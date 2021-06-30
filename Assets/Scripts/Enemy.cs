@@ -14,10 +14,11 @@ public class Enemy : MonoBehaviour
         hpText.text = HP.ToString("#,0");
     }
 
-    public void HpDamage(int hp)
+    public void HpDamage(int damage)
     {
-        HP -= hp;
+        HP -= damage;
         hpText.text = HP.ToString("#,0");
+        
     }
 
     public int GetHp()

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Camera mainCamera =default;
     private float playerSpeed = 0.1f;
     private int atkPoint =10;
+    private int score=0;
     [SerializeField] private bool isAttack = false;
     private Enemy enemy;
 
@@ -73,6 +74,8 @@ public class Player : MonoBehaviour
            enemy = other.gameObject.GetComponent<Enemy>();
            enemy.HpDamage(1);
            atkPoint -= 1;
+           score += 1;
+           Score.UpdateScore(score);
            AttackPoint.UpdateAttackPoint(atkPoint);
            if (enemy.GetHp() > 0) return;
            Destroy(other.gameObject);
