@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Camera characterCamera =default;
     [SerializeField] private Camera mainCamera =default;
     [SerializeField] private CanvasGroup uiCanvasGroup =default;
-    [SerializeField] private PlayerMove playerMove =default;
+    [SerializeField] private Player player =default;
     void Start()
     {
         StartCoroutine(GameStart());
@@ -20,8 +20,7 @@ public class GameManager : MonoBehaviour
         mainCamera.gameObject.SetActive(true);
         characterCamera.gameObject.SetActive(false);
         uiCanvasGroup.alpha = 1;
-        playerMove.PlayerRun();
-        
+        player.PlayerRun();
     }
 
 
