@@ -385,3 +385,7 @@
 /Users/saba/Document/program/Unity/SwipeGirlsAction/obj/Debug/Assembly-CSharp-Editor-firstpass.csproj.CopyComplete
 /Users/saba/Document/program/Unity/SwipeGirlsAction/obj/Debug/Assembly-CSharp-Editor-firstpass.dll
 /Users/saba/Document/program/Unity/SwipeGirlsAction/obj/Debug/Assembly-CSharp-Editor-firstpass.pdb
+/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/Cinemachine.dll
+/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/com.unity.cinemachine.editor.dll
+/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/Cinemachine.pdb
+/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/com.unity.cinemachine.editor.pdb

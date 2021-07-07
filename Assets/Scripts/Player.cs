@@ -38,9 +38,9 @@ public class Player : MonoBehaviour
                    var forward = mainCamera.transform.forward;
                    var direction = mainCamera.ScreenToWorldPoint(Input.mousePosition + forward * 10).x - prevPosX;
                    prevPosX = mainCamera.ScreenToWorldPoint(Input.mousePosition + forward * 10).x;
-                   playerPos.x += direction*0.5f;
-                   if (playerPos.x >= 1.5f) playerPos.x = 1.5f;
-                   if (playerPos.x <= -1.5f) playerPos.x = -1.5f;
+                   playerPos.x += direction*0.7f;
+                   if (playerPos.x >= 2.5f) playerPos.x = 2.5f;
+                   if (playerPos.x <= -2.5f) playerPos.x = -2.5f;
                    
                    if(!isAttack)playerPos.z += playerSpeed;
                    
