@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
         uiCanvasGroup.alpha = 1;
         player.PlayerRun();
     }
+    
 
 
 }

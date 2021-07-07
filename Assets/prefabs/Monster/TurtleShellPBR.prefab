@@ -417,7 +417,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 50
   hpText: {fileID: 5896746880271190705}
-  anim: {fileID: 0}
+  showParticle: {fileID: 8714244275622671898, guid: abf8d5b763621654486813c5c8af8234, type: 3}
+  exceptionParticle: {fileID: 198799667656002238, guid: fba3984b4d1739047b5b3e699ebda36a, type: 3}
 --- !u!1 &5896746880453387874
 GameObject:
   m_ObjectHideFlags: 0

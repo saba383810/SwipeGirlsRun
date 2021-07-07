@@ -7,16 +7,21 @@ public class Player : MonoBehaviour
 { 
     Rigidbody rb;
     [SerializeField] private Camera mainCamera =default;
-    private float playerSpeed = 0.1f;
+    [SerializeField] private Camera gameOverCamera = default;
+    private float playerSpeed = 0.2f;
     private int atkPoint =10;
     private int score=0;
+    private bool isGameOver = false;
     [SerializeField] private bool isAttack = false;
     private Enemy enemy;
+    private Animator anim;
+    private static readonly int IsDown = Animator.StringToHash("isDown");
 
     private void Start ()
     {
        rb = GetComponent<Rigidbody>();
        AttackPoint.UpdateAttackPoint(atkPoint);
+       anim = GetComponent<Animator>();
     }
 
    public void PlayerRun()
@@ -51,6 +56,8 @@ public class Player : MonoBehaviour
            if(!isAttack) playerPos.z += playerSpeed;
            
            rb.MovePosition(new Vector3(playerPos.x,transform.position.y,playerPos.z));
+           
+
            yield return null;
        }
    }
@@ -62,12 +69,13 @@ public class Player : MonoBehaviour
            Destroy(other.gameObject);
            atkPoint += 10;
            AttackPoint.UpdateAttackPoint(atkPoint);
-           Debug.Log("scoreup");
+           Debug.Log("scoreUp");
        }
    }
    
    private void OnCollisionStay(Collision other)
    {
+       if (isGameOver) return ;
        if (other.gameObject.CompareTag("enemy"))
        {
            isAttack = true;
@@ -77,17 +85,27 @@ public class Player : MonoBehaviour
            score += 1;
            Score.UpdateScore(score);
            AttackPoint.UpdateAttackPoint(atkPoint);
+           if (atkPoint <= 0)
+           {
+               StartCoroutine(GameOver());
+               isGameOver = true;
+           }
            if (enemy.GetHp() > 0) return;
-           Destroy(other.gameObject);
+           other.gameObject.GetComponent<Enemy>().EnemyDestroy();
            isAttack = false;
        }
-   }
-
-   private void OnCollisionExit(Collision other)
-   {
-       if (other.gameObject.CompareTag("enemy"))
+       else
        {
            isAttack = false;
        }
    }
+
+   private IEnumerator GameOver()
+   {
+       gameOverCamera.gameObject.SetActive(true);
+       mainCamera.gameObject.SetActive(false);
+       yield return new WaitForSeconds(0.5f);
+       anim.SetBool(IsDown,true);
+   }
+    
 }

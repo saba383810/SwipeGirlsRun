@@ -145,7 +145,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 30
   hpText: {fileID: 85105197635586276}
-  anim: {fileID: 0}
+  showParticle: {fileID: 8714244275622671898, guid: abf8d5b763621654486813c5c8af8234, type: 3}
+  exceptionParticle: {fileID: 198799667656002238, guid: fba3984b4d1739047b5b3e699ebda36a, type: 3}
 --- !u!1 &85105196341582290
 GameObject:
   m_ObjectHideFlags: 0
