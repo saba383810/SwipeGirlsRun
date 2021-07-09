@@ -382,8 +382,8 @@
 /Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/DOTweenEditor.xml
 /Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/DOTween.dll.mdb
 /Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/DOTween.xml
-/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/System.Configuration.dll
-/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/System.EnterpriseServices.dll
-/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/System.Transactions.dll
-/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/System.Diagnostics.Tracing.dll
 /Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/Assembly-CSharp-Editor-firstpass.pdb
+/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/Cinemachine.dll
+/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/com.unity.cinemachine.editor.dll
+/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/Cinemachine.pdb
+/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/com.unity.cinemachine.editor.pdb
