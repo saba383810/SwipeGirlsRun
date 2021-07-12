@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
    {
        var playerPos = rb.position;
 
-       while (true)
+       while (!isGameOver)
        {
            if (Input.GetMouseButtonDown(0))
            {
@@ -64,6 +64,7 @@ public class Player : MonoBehaviour
 
    private void OnCollisionEnter(Collision other)
    {
+       if (isGameOver) return;
        if (other.gameObject.CompareTag("bread"))
        {
            Destroy(other.gameObject);
@@ -104,8 +105,9 @@ public class Player : MonoBehaviour
    {
        gameOverCamera.gameObject.SetActive(true);
        mainCamera.gameObject.SetActive(false);
-       yield return new WaitForSeconds(0.5f);
        anim.SetBool(IsDown,true);
+       rb.AddForce(0,0,-5f);
+       yield return null;
    }
     
 }

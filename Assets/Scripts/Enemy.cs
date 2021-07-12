@@ -20,7 +20,6 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();
         Invoke(nameof(EnemyDestroy),15);
         var startParticle = Instantiate(showParticle);
-        destroyParticle = Instantiate(exceptionParticle);
         startParticle.transform.position = transform.position; 
         startParticle.Play();
     }
@@ -55,6 +54,7 @@ public class Enemy : MonoBehaviour
 
     public void EnemyDestroy()
     {
+        destroyParticle = Instantiate(exceptionParticle);
         destroyParticle.transform.position = transform.position;
         destroyParticle.Play();
         Destroy(gameObject);
