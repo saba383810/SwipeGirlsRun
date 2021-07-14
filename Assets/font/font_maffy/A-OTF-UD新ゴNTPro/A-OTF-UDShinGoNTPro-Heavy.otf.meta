@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: d4f4a53bbda3c43059ab3d54122cb8fe
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - A-OTF UD Shin Go NT Pro
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 123c9091c68584e56842c0235d838dc3, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

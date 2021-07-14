@@ -18,7 +18,6 @@ namespace UnityStandardAssets.Cameras
         private float m_BoundSize;
         private float m_FovAdjustVelocity;
         private Camera m_Cam;
-        private Transform m_LastTarget;
 
         // Use this for initialization
         protected override void Start()

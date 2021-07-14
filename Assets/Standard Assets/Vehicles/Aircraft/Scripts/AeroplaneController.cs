@@ -40,7 +40,6 @@ namespace UnityStandardAssets.Vehicles.Aeroplane
         private bool m_Immobilized = false;   // used for making the plane uncontrollable, i.e. if it has been hit or crashed.
         private float m_BankedTurnAmount;
         private Rigidbody m_Rigidbody;
-	    WheelCollider[] m_WheelColliders;
 
 
         private void Start()
