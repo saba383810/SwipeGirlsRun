@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: ca2e772e5b9584569ac4661565eb471a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - A-OTF Shin Go Pr5
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 3102df0c28e024e8887c53e92438557f, type: 3}
+  - {fileID: 12800000, guid: f872bbe3ee94244df8c7d3807ccf7953, type: 3}
+  - {fileID: 12800000, guid: 6320864cff1ed409c892ff4243217833, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
