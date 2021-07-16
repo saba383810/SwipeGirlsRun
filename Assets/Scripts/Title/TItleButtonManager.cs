@@ -20,9 +20,9 @@ public class TItleButtonManager : MonoBehaviour
    {
       StartCoroutine(nameof(StartButtonClickedMove));
    }
-   public  void OnExitButtonClicked()
+   public  void OnExitButtonClicked(int num)
    {
-      StartCoroutine(nameof(ExitButtonClickedMove));
+      StartCoroutine(ExitButtonClickedMove(num));
    }
 
    public void OnStageSelectButtonClicked()
@@ -54,25 +54,59 @@ public class TItleButtonManager : MonoBehaviour
       }
    }
 
-   private IEnumerator ExitButtonClickedMove()
+   private IEnumerator ExitButtonClickedMove(int num)
    {
-      foreach (var button in modeSelectButtons)
+      switch (num)
       {
-         button.DOFade(0f, 0.3f);
+         //ModeSelect to start
+         case 0:
+         {
+            foreach (var button in modeSelectButtons)
+            {
+               button.DOFade(0f, 0.3f);
+            }
+
+            foreach (var button in modeSelectButtons)
+            {
+               button.gameObject.SetActive(false);
+            }
+
+            modeSelectHeader.transform.DOMove(new Vector3(2493, 2694, 0), 0.4f).OnComplete(() =>
+            {
+               modeSelectHeader.SetActive(false);
+            });
+
+            startButton.gameObject.SetActive(true);
+            startButton.DOFade(1.0f, 0.4f);
+            whiteBack.transform.DOMove(new Vector3(645, -906, 0), 0.8f);
+            break;
+         }
+         // StageSelect to modeSelect
+         case 1:
+            stageSelectView.DOFade(0, 0.5f);
+            stageSelectHeader.transform.DOMove(new Vector3(2493, 2694, 0),0.8f).OnComplete(() =>
+            {
+               stageSelectHeader.SetActive(false);
+            });
+            
+            foreach (var button in stageSelectButtons)
+            {
+               button.gameObject.SetActive(false);
+               button.DOFade(0f, 0.3f);
+            }
+            stageButtonGroup.SetActive(false);
+            
+            foreach (var button in modeSelectButtons) {button.gameObject.SetActive(true); }
+            foreach (var button in modeSelectButtons)
+            {
+               button.DOFade(1f, 0.3f);
+               yield return new WaitForSeconds(0.3f);
+            }
+            
+            break;
       }
-      foreach (var button in modeSelectButtons) {button.gameObject.SetActive(false); }
-      
-      modeSelectHeader.transform.DOMove(new Vector3(2493, 2694, 0),0.4f).OnComplete(() =>
-      {
-         modeSelectHeader.SetActive(false);
-      });
-      
-      startButton.gameObject.SetActive(true);
-      startButton.DOFade(1.0f, 0.4f);
-      whiteBack.transform.DOMove(new Vector3(645, -906, 0),0.8f);
 
       yield return null;
-
    }
 
    private IEnumerator StageSelectButtonClickedMove()
