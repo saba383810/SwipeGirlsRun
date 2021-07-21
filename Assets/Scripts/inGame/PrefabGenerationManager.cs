@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class PrefabGenerationManager : MonoBehaviour
 {
-    [SerializeField] private Transform player =default;
+   private Transform player;
     [SerializeField] private GameObject breadPrefab =default;
     [SerializeField] private GameObject[] monsters =new GameObject[10];
     [SerializeField] private GameObject[] terrainPrefabs =new GameObject[5];
@@ -40,6 +40,7 @@ public class PrefabGenerationManager : MonoBehaviour
 
     private IEnumerator GenerationBreads()
     {
+        yield return new WaitForSeconds(1);
         while (true)
         {
             yield return new WaitUntil(() => player.transform.position.z > breadsCnt * 15);
@@ -67,6 +68,7 @@ public class PrefabGenerationManager : MonoBehaviour
     // ReSharper disable Unity.PerformanceAnalysis
     private IEnumerator GenerationMonsters()
     {
+        yield return new WaitForSeconds(1);
         while (true)
         {
             yield return new WaitUntil(() => player.transform.position.z > monstersCnt * 15);
@@ -96,6 +98,7 @@ public class PrefabGenerationManager : MonoBehaviour
     // ReSharper disable Unity.PerformanceAnalysis
     private IEnumerator GenerationTerrain()
     {
+        yield return new WaitForSeconds(1);
         while (true)
         {
             yield return new WaitUntil(() => player.transform.position.z > (100 * terrainCnt) - 80);
@@ -105,4 +108,11 @@ public class PrefabGenerationManager : MonoBehaviour
             yield return null;
         }
     }
+
+    public void SetPlayer(Transform player)
+    {
+        this.player = player;
+    }
+    
+    
 }

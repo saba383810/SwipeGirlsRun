@@ -5927,10 +5927,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a71462e837f84aa599be038ddaa195f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
   gameOverCamera: {fileID: 6157905872305934329}
-  isAttack: 0
-  resultWindow: {fileID: 0}
+  startCamera: {fileID: 6157905872525285374}
 --- !u!1 &6157905872993107504
 GameObject:
   m_ObjectHideFlags: 0

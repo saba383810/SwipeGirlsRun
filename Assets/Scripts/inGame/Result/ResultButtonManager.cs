@@ -12,6 +12,6 @@ public class ResultButtonManager : MonoBehaviour
 
     public void OnRetryButtonClicked()
     {
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene("Endless");
     }
 }
