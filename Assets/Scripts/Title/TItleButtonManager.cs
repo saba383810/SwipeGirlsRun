@@ -1,9 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 public class TItleButtonManager : MonoBehaviour
 {
@@ -15,19 +14,48 @@ public class TItleButtonManager : MonoBehaviour
    [SerializeField] private GameObject stageSelectHeader = default;
    [SerializeField] private CanvasGroup[] modeSelectButtons = new CanvasGroup[3];
    [SerializeField] private CanvasGroup[] stageSelectButtons = new CanvasGroup[5];
-   
+   [SerializeField] private Transform mainCamera =default;
+
+   private void Start()
+   {
+      var playerNum = PlayerPrefs.GetInt("PlayerCharacterNum");
+      mainCamera.position = playerNum switch
+      {
+         0 => new Vector3(6, 0.8f, 0),
+         1 => new Vector3(8, 0.8f, 0),
+         2 => new Vector3(10, 0.8f, 0),
+         3 => new Vector3(12, 0.8f, 0),
+         _ => throw new ArgumentOutOfRangeException()
+      };
+   }
+
+   private void Update()
+   {
+      Debug.Log(PlayerPrefs.GetInt("PlayerCharacterNum"));
+   }
+
    public  void OnStartButtonClicked()
    {
       StartCoroutine(nameof(StartButtonClickedMove));
    }
-   public  void OnExitButtonClicked()
+   public  void OnExitButtonClicked(int num)
    {
-      StartCoroutine(nameof(ExitButtonClickedMove));
+      StartCoroutine(ExitButtonClickedMove(num));
    }
 
    public void OnStageSelectButtonClicked()
    {
       StartCoroutine(nameof(StageSelectButtonClickedMove));
+   }
+
+   public void OnLeftArrowButtonClicked()
+   {
+      StartCoroutine(OnLeftArrowButtonClickedMove());
+   }
+   
+   public void OnRightArrowButtonClicked()
+   {
+      StartCoroutine(OnRightArrowButtonClickedMove()); 
    }
 
    private IEnumerator StartButtonClickedMove()
@@ -54,25 +82,59 @@ public class TItleButtonManager : MonoBehaviour
       }
    }
 
-   private IEnumerator ExitButtonClickedMove()
+   private IEnumerator ExitButtonClickedMove(int num)
    {
-      foreach (var button in modeSelectButtons)
+      switch (num)
       {
-         button.DOFade(0f, 0.3f);
+         //ModeSelect to start
+         case 0:
+         {
+            foreach (var button in modeSelectButtons)
+            {
+               button.DOFade(0f, 0.3f);
+            }
+
+            foreach (var button in modeSelectButtons)
+            {
+               button.gameObject.SetActive(false);
+            }
+
+            modeSelectHeader.transform.DOMove(new Vector3(2493, 2694, 0), 0.4f).OnComplete(() =>
+            {
+               modeSelectHeader.SetActive(false);
+            });
+
+            startButton.gameObject.SetActive(true);
+            startButton.DOFade(1.0f, 0.4f);
+            whiteBack.transform.DOMove(new Vector3(645, -906, 0), 0.8f);
+            break;
+         }
+         // StageSelect to modeSelect
+         case 1:
+            stageSelectView.DOFade(0, 0.5f);
+            stageSelectHeader.transform.DOMove(new Vector3(2493, 2694, 0),0.8f).OnComplete(() =>
+            {
+               stageSelectHeader.SetActive(false);
+            });
+            
+            foreach (var button in stageSelectButtons)
+            {
+               button.gameObject.SetActive(false);
+               button.DOFade(0f, 0.3f);
+            }
+            stageButtonGroup.SetActive(false);
+            
+            foreach (var button in modeSelectButtons) {button.gameObject.SetActive(true); }
+            foreach (var button in modeSelectButtons)
+            {
+               button.DOFade(1f, 0.3f);
+               yield return new WaitForSeconds(0.3f);
+            }
+            
+            break;
       }
-      foreach (var button in modeSelectButtons) {button.gameObject.SetActive(false); }
-      
-      modeSelectHeader.transform.DOMove(new Vector3(2493, 2694, 0),0.4f).OnComplete(() =>
-      {
-         modeSelectHeader.SetActive(false);
-      });
-      
-      startButton.gameObject.SetActive(true);
-      startButton.DOFade(1.0f, 0.4f);
-      whiteBack.transform.DOMove(new Vector3(645, -906, 0),0.8f);
 
       yield return null;
-
    }
 
    private IEnumerator StageSelectButtonClickedMove()
@@ -98,6 +160,58 @@ public class TItleButtonManager : MonoBehaviour
          yield return new WaitForSeconds(0.3f);
       }
       
+      yield return null;
+   }
+
+   private IEnumerator OnLeftArrowButtonClickedMove()
+   {
+       var playerCharacterNum= PlayerPrefs.GetInt("PlayerCharacterNum");
+
+       switch (playerCharacterNum)
+       {
+          case 0:
+             mainCamera.transform.DOMoveX(12, 1);
+             PlayerPrefs.SetInt("PlayerCharacterNum",3);
+             break;
+          case 1:
+             mainCamera.transform.DOMoveX(6, 1);
+             PlayerPrefs.SetInt("PlayerCharacterNum",0);
+             break;
+          case 2:
+             mainCamera.transform.DOMoveX(8, 1);
+             PlayerPrefs.SetInt("PlayerCharacterNum",1);
+             break;
+          case 3:
+             mainCamera.transform.DOMoveX(10, 1);
+             PlayerPrefs.SetInt("PlayerCharacterNum",2);
+             break;
+       }
+
+       yield return null;
+   }
+   private IEnumerator OnRightArrowButtonClickedMove()
+   {
+      var playerCharacterNum= PlayerPrefs.GetInt("PlayerCharacterNum");
+      switch (playerCharacterNum)
+      {
+         case 0:
+            mainCamera.transform.DOMoveX(8,1);
+            PlayerPrefs.SetInt("PlayerCharacterNum",1);
+            break;
+         case 1:
+            mainCamera.transform.DOMoveX(10,1);
+            PlayerPrefs.SetInt("PlayerCharacterNum",2);
+            break;
+         case 2:
+            mainCamera.transform.DOMoveX(12,1);
+            PlayerPrefs.SetInt("PlayerCharacterNum",3);
+            break;
+         case 3:
+            mainCamera.transform.DOMoveX(6,1);
+            PlayerPrefs.SetInt("PlayerCharacterNum",0);
+            break;
+      }
+
       yield return null;
    }
 }

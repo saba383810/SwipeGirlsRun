@@ -8,23 +8,45 @@ using DG.Tweening;
 public class Player : MonoBehaviour
 { 
     Rigidbody rb;
-    [SerializeField] private Camera mainCamera =default;
-    [SerializeField] private Camera gameOverCamera = default;
+    private Camera mainCamera;
+    [SerializeField] private Camera gameOverCamera =default;
+    [SerializeField] private Camera startCamera =default;
+    private GameManager gameManager;
     private float playerSpeed = 0.2f;
     private int atkPoint =10;
     private int score=0;
     private bool isGameOver = false;
-    [SerializeField] private bool isAttack = false;
+    private bool isAttack = false;
     private Enemy enemy;
     private Animator anim;
     private static readonly int IsDown = Animator.StringToHash("isDown");
-   [SerializeField] private CanvasGroup resultWindow = default;
+    private CanvasGroup resultWindow;
+    private GameObject inGameUIObj;
+    private GameObject newRecordUIObj;
+
+    private void Awake()
+    {
+        mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
+        resultWindow = GameObject.Find("Result").GetComponent<CanvasGroup>();
+        inGameUIObj = GameObject.Find("Battle");
+        newRecordUIObj = GameObject.Find("NewRecord");
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        GameObject.Find("GameManager").GetComponent<PrefabGenerationManager>().SetPlayer(gameObject.transform);
+        
+    }
 
     private void Start ()
     {
+        gameManager.SetPlayer(gameObject.GetComponent<Player>());
+        gameManager.SetCharacterCamera(startCamera);
+        mainCamera.gameObject.SetActive(false);
+        gameOverCamera.gameObject.SetActive(false);
        rb = GetComponent<Rigidbody>();
        AttackPoint.UpdateAttackPoint(atkPoint);
+       ResultScore.UpdateScore(0);
        anim = GetComponent<Animator>();
+       mainCamera.GetComponent<CameraMove>().SetPlayer(gameObject);
+       
     }
 
    public void PlayerRun()
@@ -86,7 +108,7 @@ public class Player : MonoBehaviour
            enemy = other.gameObject.GetComponent<Enemy>();
            enemy.HpDamage(1);
            atkPoint -= 1;
-           score += 1;
+           score += 10;
            Score.UpdateScore(score);
            AttackPoint.UpdateAttackPoint(atkPoint);
            if (atkPoint <= 0)
@@ -108,11 +130,25 @@ public class Player : MonoBehaviour
    
        resultWindow.gameObject.SetActive(true);
        resultWindow.transform.DOMove(new Vector3(622, 1344, 0), 1);
+       inGameUIObj.SetActive(false);
+       
        gameOverCamera.gameObject.SetActive(true);
        mainCamera.gameObject.SetActive(false);
        anim.SetBool(IsDown,true);
-       rb.AddForce(0,0,-10f);
-       yield return null;
+
+       if (PlayerPrefs.GetInt("HighScore") < score)
+       {
+           PlayerPrefs.SetInt("HighScore",score); 
+           newRecordUIObj.SetActive(true);
+       }
+       
+       ResultHighScore.UpdateScore(PlayerPrefs.GetInt("HighScore"));
+
+       yield return new WaitForSeconds(0.5f);
+       
+       //スコア反映
+       ResultScore.UpdateScore(score);
+       
    }
     
 }

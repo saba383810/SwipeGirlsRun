@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour
 {
-    [SerializeField] private GameObject player=default;
+    private GameObject player;
     private Vector3 playerPos;
 
 
@@ -15,5 +15,10 @@ public class CameraMove : MonoBehaviour
         var cameraTransform = transform;
         //cameraTransform.position = new Vector3(cameraTransform.position.x,playerPos.y+3,playerPos.z-3);
         cameraTransform.position = new Vector3(playerPos.x,playerPos.y+3,playerPos.z-3);
+    }
+
+    public void SetPlayer(GameObject player)
+    {
+        this.player = player;
     }
 }
