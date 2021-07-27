@@ -3442,15 +3442,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7029816616331523229}
   - component: {fileID: 3791212288229954406}
-  - component: {fileID: 6518229581594923083}
-  - component: {fileID: 3103638908321738947}
   - component: {fileID: 4658743962696029284}
   - component: {fileID: 5362879269671008494}
   - component: {fileID: 5414057834067060958}
-  - component: {fileID: 7245791587227103736}
   - component: {fileID: 6202967413600871931}
   - component: {fileID: 7805843803880943958}
   - component: {fileID: 7063805701433766746}
+  - component: {fileID: 6499207464412346162}
   m_Layer: 0
   m_Name: Yuko_win
   m_TagString: Untagged
@@ -3488,7 +3486,7 @@ Animator:
   m_GameObject: {fileID: 7812209824443536693}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 346b04ba3952add4f9b34ca9a0dbc322, type: 3}
-  m_Controller: {fileID: 9100000, guid: ec8b7a890bc616648804b6f391e2077e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2182546391ad7564594fbb27c5bc897e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -3497,57 +3495,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6518229581594923083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7812209824443536693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 058a2736f2afd564eae55007a87eed87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _random: 0
-  _threshold: 0.5
-  _interval: 10
-  isGUI: 1
---- !u!114 &3103638908321738947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7812209824443536693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e658bfc1e524494b9e54a1c92d8c1e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animations:
-  - {fileID: 7400000, guid: 47313c1d3bed36048ad43fce4bfd647f, type: 2}
-  - {fileID: 7400000, guid: 6f9d02c82bd7a4d46b48115ac8104d4d, type: 2}
-  - {fileID: 7400000, guid: 521bc8e47d69cac4c9016743ed911dd0, type: 2}
-  - {fileID: 7400000, guid: 6f72529eecb2da548a86fa56a920855a, type: 2}
-  - {fileID: 7400000, guid: d2d64640e98bacb4e8af4be9560d7794, type: 2}
-  - {fileID: 7400000, guid: 865359bff263c1047a21f8b39ae8fd15, type: 2}
-  - {fileID: 7400000, guid: 7b1836ddbca293048bb3bd4a2e756ace, type: 2}
-  - {fileID: 7400000, guid: e802d9e8bfef42b4080f1f1160736639, type: 2}
-  - {fileID: 7400000, guid: 0eb01197404b6844381dc3ac95a82cf4, type: 2}
-  - {fileID: 7400000, guid: 27d76b1a2d1028a4e96ef4674213b76b, type: 2}
-  - {fileID: 7400000, guid: 5818efaedc3502443a380ac5d39e1b63, type: 2}
-  - {fileID: 7400000, guid: c34319634700c8544b80a0f5d61eafd8, type: 2}
-  - {fileID: 7400000, guid: f60c9541242b5c04ea78ae1347173831, type: 2}
-  - {fileID: 7400000, guid: bad28854072081e408177ec055f447cd, type: 2}
-  - {fileID: 7400000, guid: d893ba457a5fb2848b14a43eabeb4440, type: 2}
-  - {fileID: 7400000, guid: caaa90c51f072014b92ab1da0797bef9, type: 2}
-  - {fileID: 7400000, guid: b9160adc98c441a4498a7d9f15625c1e, type: 2}
-  - {fileID: 7400000, guid: d5eb65e1cc6d6c240aeab024638a7653, type: 2}
-  - {fileID: 7400000, guid: cb3828e66b00a344dac8e7595b268a2b, type: 2}
-  delayWeight: 3
-  isKeepFace: 1
-  isGUI: 1
 --- !u!114 &4658743962696029284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3673,26 +3620,6 @@ MonoBehaviour:
   windPower: 1
   gravity: 0.98
   isGUI: 1
---- !u!114 &7245791587227103736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7812209824443536693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75453f0413251fd42811d1b1eb4728c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ikActive: 0
-  lookAtObj: {fileID: 0}
-  lookAtWeight: 1
-  bodyWeight: 0.3
-  headWeight: 0.8
-  eyesWeight: 1
-  clampWeight: 0.5
-  isGUI: 1
 --- !u!54 &6202967413600871931
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3737,6 +3664,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverCamera: {fileID: 8612150095346280976}
   startCamera: {fileID: 3838562427929234083}
+--- !u!114 &6499207464412346162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7812209824443536693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e658bfc1e524494b9e54a1c92d8c1e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animations:
+  - {fileID: 7400000, guid: 7e0bc05df8ca13a409a6db548f739843, type: 2}
+  - {fileID: 7400000, guid: 5aa61c8a1b86d46498ec2ef6f46bca4b, type: 2}
+  - {fileID: 7400000, guid: b12705bcc0f99434fb185a23068543a3, type: 2}
+  - {fileID: 7400000, guid: 6ccc38a7c52beab4b84cf22bdaea38c9, type: 2}
+  - {fileID: 7400000, guid: b25b47b8477ed6b42ab855314194db65, type: 2}
+  - {fileID: 7400000, guid: bcb5530cdfa68884793197410d11ec48, type: 2}
+  - {fileID: 7400000, guid: 05c33fd3cf205484bb23d52f6dfce28c, type: 2}
+  - {fileID: 7400000, guid: 40c28a1d0eb0be14da0bf552f75c0a4a, type: 2}
+  - {fileID: 7400000, guid: 1e6f13757e361f64e95251cdc2045132, type: 2}
+  - {fileID: 7400000, guid: c0b5c665faea4e2459e8b4d476c7fad0, type: 2}
+  - {fileID: 7400000, guid: 90661dde7ad089a459c13791ee1f772d, type: 2}
+  - {fileID: 7400000, guid: 33ade5e0cbdd7c747b0a3e54ffe8048b, type: 2}
+  - {fileID: 7400000, guid: 3511f56cd3ed7624f90599ab09b41efc, type: 2}
+  - {fileID: 7400000, guid: 339860ac6c9c2a345806557da8297872, type: 2}
+  - {fileID: 7400000, guid: 732635195de67ab4789bff959af19a4e, type: 2}
+  - {fileID: 7400000, guid: 0f8e6cf049ffcf84098cdc63ec103d39, type: 2}
+  - {fileID: 7400000, guid: 6bb63a3878adfa742a1689223655f76e, type: 2}
+  - {fileID: 7400000, guid: 01e642e0aae05f34eb0859a0438757a5, type: 2}
+  - {fileID: 7400000, guid: aff422e8d7eaec148851692a962b9ba2, type: 2}
+  delayWeight: 3
+  isKeepFace: 1
+  isGUI: 0
 --- !u!1 &7840627985299509732
 GameObject:
   m_ObjectHideFlags: 0

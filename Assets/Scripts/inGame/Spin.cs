@@ -15,4 +15,5 @@ public class Spin : MonoBehaviour
     {
         transform.Rotate(new Vector3(0,10,0));
     }
+
 }

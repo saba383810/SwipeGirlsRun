@@ -376,3 +376,7 @@
 /Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/com.unity.cinemachine.editor.pdb
 /Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/Unity.2D.Sprite.Editor.dll
 /Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/Unity.2D.Sprite.Editor.pdb
+/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/UnityEditor.iOS.Extensions.Common.dll
+/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/UnityEditor.iOS.Extensions.Xcode.dll
+/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/UnityEditor.iOS.Extensions.Xcode.pdb
+/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/UnityEditor.iOS.Extensions.Common.pdb
