@@ -10,34 +10,20 @@ public class PrefabGenerationManager : MonoBehaviour
     [SerializeField] private GameObject breadPrefab =default;
     [SerializeField] private GameObject[] monsters =new GameObject[10];
     [SerializeField] private GameObject[] terrainPrefabs =new GameObject[5];
+    [SerializeField] private bool isEndless =default;
     private int terrainCnt = 1;
     private int breadsCnt = 1;
     private int monstersCnt = 1;
-    
+
+    private float time;
     private void Start()
     {
         //StartCoroutine(GenerationManger());
         StartCoroutine(GenerationBreads());
         StartCoroutine(GenerationMonsters());
-        StartCoroutine(GenerationTerrain());
-    }
-
-    private IEnumerator GenerationManger()
-    {
+        if(isEndless) StartCoroutine(GenerationTerrain());
         
-        yield return new WaitForSeconds(3f);
-        while (true)
-        {
-            if(player.transform.position.z>(100*terrainCnt)-80) yield return GenerationTerrain();
-            yield return  GenerationBreads();
-            yield return new WaitForSeconds(1f);
-            yield return GenerationMonsters();
-            yield return new WaitForSeconds(1f);
-        }
-        // ReSharper disable once IteratorNeverReturns
     }
-
-
     private IEnumerator GenerationBreads()
     {
         yield return new WaitForSeconds(1);

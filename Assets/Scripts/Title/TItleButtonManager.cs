@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TItleButtonManager : MonoBehaviour
 {
@@ -15,32 +17,45 @@ public class TItleButtonManager : MonoBehaviour
    [SerializeField] private CanvasGroup[] modeSelectButtons = new CanvasGroup[3];
    [SerializeField] private CanvasGroup[] stageSelectButtons = new CanvasGroup[5];
    [SerializeField] private Transform mainCamera =default;
+   [SerializeField] private Transform text1 =default;
+   public bool flickLock =false;
 
    private void Start()
    {
       var playerNum = PlayerPrefs.GetInt("PlayerCharacterNum");
-      mainCamera.position = playerNum switch
+      switch (playerNum)
       {
-         0 => new Vector3(6, 0.8f, 0),
-         1 => new Vector3(8, 0.8f, 0),
-         2 => new Vector3(10, 0.8f, 0),
-         3 => new Vector3(12, 0.8f, 0),
-         _ => throw new ArgumentOutOfRangeException()
-      };
+         case 0:
+            mainCamera.position = new Vector3(6, 0.75f, 0);
+            text1.GetComponent<Text>().text = "Misaki";
+            break;
+         case 1:
+            mainCamera.position = new Vector3(8, 0.75f, 0);
+            text1.GetComponent<Text>().text = "Toko";
+            break;
+         case 2:
+            mainCamera.position = new Vector3(10, 0.75f, 0);
+            text1.GetComponent<Text>().text = "Kohaku";
+            break;
+         case 3:
+            mainCamera.position = new Vector3(12, 0.75f, 0);
+            text1.GetComponent<Text>().text = "Yuko";
+            break;
+         default:
+            throw new ArgumentOutOfRangeException();
+      }
    }
-
-   private void Update()
-   {
-      Debug.Log(PlayerPrefs.GetInt("PlayerCharacterNum"));
-   }
+   
 
    public  void OnStartButtonClicked()
    {
+      flickLock = true;
       StartCoroutine(nameof(StartButtonClickedMove));
    }
    public  void OnExitButtonClicked(int num)
    {
       StartCoroutine(ExitButtonClickedMove(num));
+      flickLock = false;
    }
 
    public void OnStageSelectButtonClicked()
@@ -56,6 +71,11 @@ public class TItleButtonManager : MonoBehaviour
    public void OnRightArrowButtonClicked()
    {
       StartCoroutine(OnRightArrowButtonClickedMove()); 
+   }
+
+   public void OnEndlessButtonClicked()
+   {
+      StartCoroutine(OnEndlessButtonClickedMove());
    }
 
    private IEnumerator StartButtonClickedMove()
@@ -163,6 +183,7 @@ public class TItleButtonManager : MonoBehaviour
       yield return null;
    }
 
+   // ReSharper disable Unity.PerformanceAnalysis
    private IEnumerator OnLeftArrowButtonClickedMove()
    {
        var playerCharacterNum= PlayerPrefs.GetInt("PlayerCharacterNum");
@@ -170,48 +191,65 @@ public class TItleButtonManager : MonoBehaviour
        switch (playerCharacterNum)
        {
           case 0:
-             mainCamera.transform.DOMoveX(12, 1);
+             mainCamera.transform.DOMoveX(12, 0.5f);
              PlayerPrefs.SetInt("PlayerCharacterNum",3);
+             text1.GetComponent<Text>().text = "Yuko";
              break;
           case 1:
-             mainCamera.transform.DOMoveX(6, 1);
+             mainCamera.transform.DOMoveX(6, 0.5f);
              PlayerPrefs.SetInt("PlayerCharacterNum",0);
+             text1.GetComponent<Text>().text = "Misaki";
              break;
           case 2:
-             mainCamera.transform.DOMoveX(8, 1);
+             mainCamera.transform.DOMoveX(8, 0.5f);
              PlayerPrefs.SetInt("PlayerCharacterNum",1);
+             text1.GetComponent<Text>().text = "Toko";
              break;
           case 3:
-             mainCamera.transform.DOMoveX(10, 1);
+             mainCamera.transform.DOMoveX(10, 0.5f);
              PlayerPrefs.SetInt("PlayerCharacterNum",2);
+             text1.GetComponent<Text>().text = "Kohaku";
              break;
        }
 
        yield return null;
    }
+   // ReSharper disable Unity.PerformanceAnalysis
    private IEnumerator OnRightArrowButtonClickedMove()
    {
       var playerCharacterNum= PlayerPrefs.GetInt("PlayerCharacterNum");
       switch (playerCharacterNum)
       {
          case 0:
-            mainCamera.transform.DOMoveX(8,1);
+            mainCamera.transform.DOMoveX(8,0.5f);
             PlayerPrefs.SetInt("PlayerCharacterNum",1);
+            text1.GetComponent<Text>().text = "Toko";
             break;
          case 1:
-            mainCamera.transform.DOMoveX(10,1);
+            mainCamera.transform.DOMoveX(10,0.5f);
             PlayerPrefs.SetInt("PlayerCharacterNum",2);
+            text1.GetComponent<Text>().text = "Kohaku";
             break;
          case 2:
-            mainCamera.transform.DOMoveX(12,1);
+            mainCamera.transform.DOMoveX(12,0.5f);
             PlayerPrefs.SetInt("PlayerCharacterNum",3);
+            text1.GetComponent<Text>().text = "Yuko";
             break;
          case 3:
-            mainCamera.transform.DOMoveX(6,1);
+            mainCamera.transform.DOMoveX(6,0.5f);
             PlayerPrefs.SetInt("PlayerCharacterNum",0);
+            text1.GetComponent<Text>().text = "Misaki";
             break;
       }
+      yield return null;
+   }
 
+   private IEnumerator OnEndlessButtonClickedMove()
+   {
+      
+      //TODO ローディングアニメション入れる
+      
+      SceneManager.LoadScene("Endless");
       yield return null;
    }
 }

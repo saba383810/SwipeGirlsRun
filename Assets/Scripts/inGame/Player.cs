@@ -41,12 +41,12 @@ public class Player : MonoBehaviour
         gameManager.SetCharacterCamera(startCamera);
         mainCamera.gameObject.SetActive(false);
         gameOverCamera.gameObject.SetActive(false);
-       rb = GetComponent<Rigidbody>();
-       AttackPoint.UpdateAttackPoint(atkPoint);
-       ResultScore.UpdateScore(0);
-       anim = GetComponent<Animator>();
-       mainCamera.GetComponent<CameraMove>().SetPlayer(gameObject);
-       
+        rb = GetComponent<Rigidbody>();
+        AttackPoint.UpdateAttackPoint(atkPoint);
+        ResultScore.UpdateScore(0);
+        anim = GetComponent<Animator>();
+        mainCamera.GetComponent<CameraMove>().SetPlayer(gameObject);
+        newRecordUIObj.SetActive(false);
     }
 
    public void PlayerRun()
