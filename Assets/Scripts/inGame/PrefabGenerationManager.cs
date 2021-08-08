@@ -18,7 +18,7 @@ public class PrefabGenerationManager : MonoBehaviour
     private float time;
     private void Start()
     {
-        //StartCoroutine(GenerationManger());
+        
         StartCoroutine(GenerationBreads());
         StartCoroutine(GenerationMonsters());
         if(isEndless) StartCoroutine(GenerationTerrain());

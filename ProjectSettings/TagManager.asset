@@ -6,6 +6,8 @@ TagManager:
   tags:
   - bread
   - enemy
+  - FxTemporaire
+  - ClearLine
   layers:
   - Default
   - TransparentFX
