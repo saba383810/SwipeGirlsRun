@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 { 
@@ -20,19 +21,33 @@ public class Player : MonoBehaviour
     private Enemy enemy;
     private Animator anim;
     private static readonly int IsDown = Animator.StringToHash("isDown");
+    private static readonly int IsClear = Animator.StringToHash("isClear");
     private CanvasGroup resultWindow;
     private GameObject inGameUIObj;
     private GameObject newRecordUIObj;
+    private CanvasGroup gameOverText;
+    private CanvasGroup gameClearText;
+    private CanvasGroup missionFailedText;
+    private GameObject nextButton;
+    private GameObject retryButton;
+    private string stageName;
+    
+    
 
     private void Awake()
     {
-        mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
+        mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>(); 
         resultWindow = GameObject.Find("Result").GetComponent<CanvasGroup>();
+        retryButton = GameObject.Find("RetryButton");
+        nextButton = GameObject.Find("NextButton");
+        gameOverText = GameObject.Find("GameOverText").GetComponent<CanvasGroup>();
+        gameClearText = GameObject.Find("StageClearText").GetComponent<CanvasGroup>();
+        missionFailedText = GameObject.Find("MissionFailedText").GetComponent<CanvasGroup>();
+        
         inGameUIObj = GameObject.Find("Battle");
         newRecordUIObj = GameObject.Find("NewRecord");
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         GameObject.Find("GameManager").GetComponent<PrefabGenerationManager>().SetPlayer(gameObject.transform);
-        
     }
 
     private void Start ()
@@ -47,6 +62,7 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         mainCamera.GetComponent<CameraMove>().SetPlayer(gameObject);
         newRecordUIObj.SetActive(false);
+        stageName = SceneManager.GetActiveScene().name;
     }
 
    public void PlayerRun()
@@ -97,6 +113,12 @@ public class Player : MonoBehaviour
            AttackPoint.UpdateAttackPoint(atkPoint);
            Debug.Log("scoreUp");
        }
+
+       if (other.gameObject.CompareTag("ClearLine"))
+       {
+           StartCoroutine(GameClear());
+           isGameOver = true;
+       }
    }
    
    private void OnCollisionStay(Collision other)
@@ -126,23 +148,29 @@ public class Player : MonoBehaviour
        }
    }
 
-   private IEnumerator GameOver(){
-   
-       resultWindow.gameObject.SetActive(true);
-       resultWindow.transform.DOMove(new Vector3(622, 1344, 0), 1);
+   private IEnumerator GameOver()
+   {
+       anim.SetBool(IsDown,true);
        inGameUIObj.SetActive(false);
-       
        gameOverCamera.gameObject.SetActive(true);
        mainCamera.gameObject.SetActive(false);
-       anim.SetBool(IsDown,true);
 
-       if (PlayerPrefs.GetInt("HighScore") < score)
+       gameOverText.DOFade(1, 1f).OnComplete(()=> gameOverText.DOFade(0,1f));
+       yield return new WaitForSeconds(2f);
+       resultWindow.gameObject.SetActive(true);
+       nextButton.gameObject.SetActive(false);
+       retryButton.gameObject.SetActive(true);
+       
+       resultWindow.transform.DOMove(new Vector3(622, 1344, 0), 1);
+      
+       var stageName = SceneManager.GetActiveScene().name;
+       if (PlayerPrefs.GetInt(stageName+"HighScore") < score)
        {
-           PlayerPrefs.SetInt("HighScore",score); 
+           PlayerPrefs.SetInt(stageName+"HighScore",score); 
            newRecordUIObj.SetActive(true);
        }
        
-       ResultHighScore.UpdateScore(PlayerPrefs.GetInt("HighScore"));
+       ResultHighScore.UpdateScore(PlayerPrefs.GetInt(stageName+"HighScore"));
 
        yield return new WaitForSeconds(0.5f);
        
@@ -150,5 +178,95 @@ public class Player : MonoBehaviour
        ResultScore.UpdateScore(score);
        
    }
-    
+
+   private IEnumerator GameClear()
+   {
+       
+        
+       var isMissionClear = false;
+       switch (stageName)
+       {
+           case "Stage1":
+               if (score >= 2000) isMissionClear = true;
+               break;
+           case "Stage2":
+               if (score >= 4000) isMissionClear = true;
+               break;
+           case "Stage3":
+               if (score >= 8000) isMissionClear = true;
+               break;
+           case "Stage4":
+               if (score >= 16000) isMissionClear = true;
+               break;
+           case "Stage5":
+               if (score >= 32000) isMissionClear = true;
+               break;
+       }
+
+       if (!isMissionClear)
+       {
+           StartCoroutine(MissionFailed());
+           yield break;
+       }
+
+       anim.SetBool(IsClear, true);
+       inGameUIObj.SetActive(false);
+       gameOverCamera.transform.localPosition = new Vector3(0, 1.3f, 1.5f);
+       gameOverCamera.transform.localRotation = Quaternion.Euler(20, 180, 0);
+       gameOverCamera.gameObject.SetActive(true);
+       mainCamera.gameObject.SetActive(false);
+
+       gameClearText.DOFade(1, 1f).OnComplete(() => gameClearText.DOFade(0, 1f));
+       yield return new WaitForSeconds(2f);
+       resultWindow.gameObject.SetActive(true);
+       nextButton.SetActive(true);
+       retryButton.SetActive(false);
+
+       resultWindow.transform.DOMove(new Vector3(622, 1344, 0), 1);
+
+       if (PlayerPrefs.GetInt(stageName + "HighScore") < score)
+       {
+           PlayerPrefs.SetInt(stageName + "HighScore", score);
+           newRecordUIObj.SetActive(true);
+       }
+
+       ResultHighScore.UpdateScore(PlayerPrefs.GetInt(stageName + "HighScore"));
+
+       yield return new WaitForSeconds(0.5f);
+
+       //スコア反映
+       ResultScore.UpdateScore(score);
+   
+       
+       
+   }
+   private IEnumerator MissionFailed()
+   {
+       anim.SetBool(IsDown,true);
+       inGameUIObj.SetActive(false);
+       gameOverCamera.gameObject.SetActive(true);
+       mainCamera.gameObject.SetActive(false);
+
+       missionFailedText.DOFade(1, 1f).OnComplete(()=> missionFailedText.DOFade(0,1f));
+       yield return new WaitForSeconds(2f);
+       resultWindow.gameObject.SetActive(true);
+       nextButton.gameObject.SetActive(false);
+       retryButton.gameObject.SetActive(true);
+       
+       resultWindow.transform.DOMove(new Vector3(622, 1344, 0), 1);
+      
+       if (PlayerPrefs.GetInt(stageName+"HighScore") < score)
+       {
+           PlayerPrefs.SetInt(stageName+"HighScore",score); 
+           newRecordUIObj.SetActive(true);
+       }
+       
+       ResultHighScore.UpdateScore(PlayerPrefs.GetInt(stageName+"HighScore"));
+
+       yield return new WaitForSeconds(0.5f);
+       
+       //スコア反映
+       ResultScore.UpdateScore(score);
+       
+   }
 }

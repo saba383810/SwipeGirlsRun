@@ -78,6 +78,11 @@ public class TItleButtonManager : MonoBehaviour
       StartCoroutine(OnEndlessButtonClickedMove());
    }
 
+   public void OnStageButtonClicked(int stageNum)
+   {
+      StartCoroutine(OnStageButtonClickedMove(stageNum));
+   }
+
    private IEnumerator StartButtonClickedMove()
    {
       startButton.DOFade(0, 0.2f);
@@ -250,6 +255,23 @@ public class TItleButtonManager : MonoBehaviour
       //TODO ローディングアニメション入れる
       
       SceneManager.LoadScene("Endless");
+      yield return null;
+   }
+   
+   private IEnumerator OnStageButtonClickedMove(int stageNum)
+   {
+      
+      //TODO ローディングアニメション入れ
+
+      switch (stageNum)
+      {
+         case 1:
+            SceneManager.LoadScene("Stage1");
+            break;
+         case 2:
+            break;
+      }
+
       yield return null;
    }
 }
