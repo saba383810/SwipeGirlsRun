@@ -181,25 +181,44 @@ public class Player : MonoBehaviour
 
    private IEnumerator GameClear()
    {
-       
-        
        var isMissionClear = false;
        switch (stageName)
        {
            case "Stage1":
-               if (score >= 2000) isMissionClear = true;
+               if (score >= 2000)
+               {
+                   isMissionClear = true;
+                   if (PlayerPrefs.GetInt("ClearStage") < 1) PlayerPrefs.SetInt("ClearStage", 2);
+               }
+
                break;
            case "Stage2":
-               if (score >= 4000) isMissionClear = true;
+               if (score >= 4000) 
+               {
+                   isMissionClear = true;
+                   if (PlayerPrefs.GetInt("ClearStage") < 2) PlayerPrefs.SetInt("ClearStage", 3);
+               }
                break;
            case "Stage3":
-               if (score >= 8000) isMissionClear = true;
+               if (score >= 8000)
+               {
+                   isMissionClear = true;
+                   if (PlayerPrefs.GetInt("ClearStage") < 3) PlayerPrefs.SetInt("ClearStage", 4);
+               }
                break;
            case "Stage4":
-               if (score >= 16000) isMissionClear = true;
+               if (score >= 16000)
+               {
+                   isMissionClear = true;
+                   if (PlayerPrefs.GetInt("ClearStage") < 4) PlayerPrefs.SetInt("ClearStage", 5);
+               }
                break;
            case "Stage5":
-               if (score >= 32000) isMissionClear = true;
+               if (score >= 32000)
+               {
+                   isMissionClear = true;
+                   if (PlayerPrefs.GetInt("ClearStage") < 5) PlayerPrefs.SetInt("ClearStage", 6);
+               }
                break;
        }
 
@@ -208,7 +227,7 @@ public class Player : MonoBehaviour
            StartCoroutine(MissionFailed());
            yield break;
        }
-
+       
        anim.SetBool(IsClear, true);
        inGameUIObj.SetActive(false);
        gameOverCamera.transform.localPosition = new Vector3(0, 1.3f, 1.5f);
