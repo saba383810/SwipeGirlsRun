@@ -81,7 +81,7 @@ public class ScoreRanking : MonoBehaviour
         {
             Debug.Log($"取得成功!playerHighScore:{leaderboardResult.Leaderboard[0].StatValue}player順位:{leaderboardResult.Leaderboard[0].Position}");
             playerData[0] = leaderboardResult.Leaderboard[0].StatValue;
-            playerData[1] = leaderboardResult.Leaderboard[0].Position;
+            playerData[1] = leaderboardResult.Leaderboard[0].Position+1;
         }
 
         void OnError(PlayFabError error)

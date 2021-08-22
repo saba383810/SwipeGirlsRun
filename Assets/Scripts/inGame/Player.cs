@@ -111,7 +111,6 @@ public class Player : MonoBehaviour
            Destroy(other.gameObject);
            atkPoint += 10;
            AttackPoint.UpdateAttackPoint(atkPoint);
-           Debug.Log("scoreUp");
        }
 
        if (other.gameObject.CompareTag("ClearLine"))
@@ -168,6 +167,8 @@ public class Player : MonoBehaviour
        {
            PlayerPrefs.SetInt(stageName+"HighScore",score); 
            newRecordUIObj.SetActive(true);
+           ScoreRanking.SendPlayScore(score);
+           Debug.Log("ScoreSet");
        }
        
        ResultHighScore.UpdateScore(PlayerPrefs.GetInt(stageName+"HighScore"));

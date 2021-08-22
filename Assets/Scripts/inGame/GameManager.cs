@@ -15,8 +15,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text missionText =default;
     private Player player;
     [SerializeField] private GameObject[] characterPrefabs = new GameObject[4];
+    [SerializeField] private AudioManager audioManager = default;
     void Start()
     {
+        audioManager.BGMPlay(0);
         StartCoroutine(GameStart());
         StartCoroutine(MissionWindowIn());
         battleUICanvasGroup.alpha = 0;

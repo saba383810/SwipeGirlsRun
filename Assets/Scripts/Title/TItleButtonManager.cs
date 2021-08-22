@@ -30,6 +30,7 @@ public class TItleButtonManager : MonoBehaviour
    [SerializeField] private Text errorText =default;
    [SerializeField] private CanvasGroup backGroundImg =default;
    [SerializeField] private CanvasGroup splashImg = default;
+   [SerializeField] private AudioManager audioManager =default;
    private bool nameEnable = false;
    private static bool firstLoaded = false;
    
@@ -83,6 +84,7 @@ public class TItleButtonManager : MonoBehaviour
 
    public void OnRegisterButtonClicked()
    {
+      audioManager.SePlay(0);
       StartCoroutine(OnRegisterButtonClickedMove());
    }
    
@@ -90,37 +92,44 @@ public class TItleButtonManager : MonoBehaviour
    public  void OnStartButtonClicked()
    {
       flickLock = true;
+      audioManager.SePlay(0);
       StartCoroutine(nameof(StartButtonClickedMove));
    }
    public  void OnExitButtonClicked(int num)
    {
+      audioManager.SePlay(0);
       StartCoroutine(ExitButtonClickedMove(num));
       flickLock = false;
    }
 
    public void OnStageSelectButtonClicked()
    {
+      audioManager.SePlay(0);
       StartCoroutine(nameof(StageSelectButtonClickedMove));
    }
 
    public void OnLeftArrowButtonClicked()
    {
+      audioManager.SePlay(0);
       StartCoroutine(OnLeftArrowButtonClickedMove());
    }
    
    public void OnRightArrowButtonClicked()
    {
+      audioManager.SePlay(0);
       StartCoroutine(OnRightArrowButtonClickedMove()); 
    }
 
    public void OnEndlessButtonClicked()
    {
+      audioManager.SePlay(0);
       StartCoroutine(OnEndlessButtonClickedMove());
    }
   
 
    public void OnStageButtonClicked(int stageNum)
    {
+      audioManager.SePlay(0);
       StartCoroutine(OnStageButtonClickedMove(stageNum));
    }
 
@@ -329,17 +338,18 @@ public class TItleButtonManager : MonoBehaviour
          button.DOFade(1.0f, 0.3f);
          yield return new WaitForSeconds(0.3f);
       }
+      //ランキング反映
+      
       var playerData = ScoreRanking.GetPlayerData();
+      yield return new WaitForSeconds(0.5f);
       if (playerData[0] == 0)
       {
-         yield return new WaitForSeconds(0.2f);
          playerDataText[0].text = playerData[0].ToString();
          yield return new WaitForSeconds(0.4f);
          playerDataText[1].text = "未参加";
       }
       else
       {
-         yield return new WaitForSeconds(0.2f);
          playerDataText[0].text = playerData[0].ToString();
          yield return new WaitForSeconds(0.4f);
          playerDataText[1].text = $"{playerData[1]}位";
@@ -433,6 +443,7 @@ public class TItleButtonManager : MonoBehaviour
 
    IEnumerator splashStart()
    {
+      splashImg.gameObject.SetActive(true);
       yield return new WaitForSeconds(1f);
       splashImg.DOFade(1, 1);
       yield return new WaitForSeconds(2f);
