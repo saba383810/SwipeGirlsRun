@@ -409,3 +409,9 @@
 /Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/PlayFabEditorExtensions.pdb
 /Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/PlayFabSDKEditor.pdb
 /Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/PlayFab.pdb
+/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/UnityEngine.Advertisements.dll
+/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/UnityEngine.Advertisements.Editor.dll
+/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/UnityEngine.Monetization.dll
+/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/UnityEngine.Monetization.pdb
+/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/UnityEngine.Advertisements.pdb
+/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/UnityEngine.Advertisements.Editor.pdb

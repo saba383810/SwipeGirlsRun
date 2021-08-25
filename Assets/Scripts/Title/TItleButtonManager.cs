@@ -27,7 +27,10 @@ public class TItleButtonManager : MonoBehaviour
    [SerializeField] private Transform text1 =default;
    [SerializeField] private CanvasGroup playerNameRegisterPanel = default;
    [SerializeField] private InputField playerNameInputField = default;
+   [SerializeField] private InputField settingRenameInputField = default;
+   [SerializeField] private CanvasGroup settingPanelCanvasGroup =default;
    [SerializeField] private Text errorText =default;
+   [SerializeField] private Text settingErrorText = default;
    [SerializeField] private CanvasGroup backGroundImg =default;
    [SerializeField] private CanvasGroup splashImg = default;
    [SerializeField] private AudioManager audioManager =default;
@@ -137,10 +140,10 @@ public class TItleButtonManager : MonoBehaviour
    {
       startButton.DOFade(0, 0.2f);
       
-      whiteBack.transform.position = new Vector3(645, -906, 0);
-      whiteBack.transform.DOMove(new Vector3(645, -1006, 0),0.2f).OnComplete(() =>
+      whiteBack.transform.localPosition = new Vector3(0, -2150, 0);
+      whiteBack.transform.DOLocalMove(new Vector3(0, -2350, 0),0.2f).OnComplete(() =>
       {
-         whiteBack.transform.DOMove(new Vector3(645, 1344, 0),0.8f);
+         whiteBack.transform.DOLocalMove(new Vector3(0, 0, 0),0.8f);
       });
       startButton.gameObject.SetActive(false);
      
@@ -181,7 +184,7 @@ public class TItleButtonManager : MonoBehaviour
 
             startButton.gameObject.SetActive(true);
             startButton.DOFade(1.0f, 0.4f);
-            whiteBack.transform.DOMove(new Vector3(645, -906, 0), 0.8f);
+            whiteBack.transform.DOLocalMove(new Vector3(0, -2150, 0), 0.8f);
             break;
          }
          // StageSelect to modeSelect
@@ -328,9 +331,9 @@ public class TItleButtonManager : MonoBehaviour
       endlessModeHeader.transform.DOMove(new Vector3(447, 2333, 0),0.8f);
       yield return new WaitForSeconds(0.5f);
       
-      yourWorldDataPanel.transform.localPosition = new Vector3(2000,-125,0);
+      yourWorldDataPanel.transform.localPosition = new Vector3(2000,0,0);
       yourWorldDataPanel.SetActive(true);
-      yourWorldDataPanel.transform.DOLocalMove(new Vector3(0,-125,0), 0.8f);
+      yourWorldDataPanel.transform.DOLocalMove(new Vector3(0,0,0), 0.8f);
       
       foreach (var button in endlessModeButtons)
       {
@@ -390,7 +393,7 @@ public class TItleButtonManager : MonoBehaviour
    {
       if (playerNameInputField.text.Length < 3||playerNameInputField.text.Length > 10)
       {
-         errorText.text = "1~10文字でで入力してください。";
+         errorText.text = "3~10文字でで入力してください。";
          yield break;
       }
       
@@ -431,7 +434,6 @@ public class TItleButtonManager : MonoBehaviour
          playerNameRegisterPanel.gameObject.SetActive(false)
       );
       StartCoroutine(splashStart());
-
    }
 
    //ユーザ名の更新失敗
@@ -439,6 +441,7 @@ public class TItleButtonManager : MonoBehaviour
    {
       Debug.LogError($"ユーザ名の更新に失敗しました\n{error.GenerateErrorReport()}");
       errorText.text = "すでにその名前は使用されています。";
+      settingErrorText.text = "すでにその名前は使用されています。";
    }
 
    IEnumerator splashStart()
@@ -453,5 +456,50 @@ public class TItleButtonManager : MonoBehaviour
       backGroundImg.DOFade(0, 1);
       yield return new WaitForSeconds(1f);
       backGroundImg.gameObject.SetActive(false);
+   }
+
+   public void OnSettingButtonClicked()
+   {
+      settingErrorText.text = "";
+      audioManager.SePlay(0);
+      settingPanelCanvasGroup.gameObject.SetActive(true);
+      settingPanelCanvasGroup.DOFade(1, 0.5f);
+   }
+
+   public void OnExitSettingClicked()
+   {
+      audioManager.SePlay(0);
+      settingPanelCanvasGroup.DOFade(0, 0.5f).OnComplete(() => settingPanelCanvasGroup.gameObject.SetActive(false));
+   }
+
+   public void RenameButtonClicked()
+   {
+      if (settingRenameInputField.text.Length < 3||settingRenameInputField.text.Length > 10)
+      {
+         settingErrorText.text = "3~10文字で入力してください。";
+      }
+      
+      UpdateSettingUserName(settingRenameInputField.text);
+   }
+   
+   public void UpdateSettingUserName(string userName)
+   {
+      //ユーザ名を指定して、UpdateUserTitleDisplayNameRequestのインスタンスを生成
+      var request = new UpdateUserTitleDisplayNameRequest
+      {
+         DisplayName = userName
+      };
+
+      //ユーザ名の更新
+      Debug.Log($"ユーザ名の更新開始");
+      PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnSettingUpdateUserNameSuccess, OnUpdateUserNameFailure);
+      PlayerPrefs.SetString("PlayerName",userName);
+   }
+   
+   private void OnSettingUpdateUserNameSuccess(UpdateUserTitleDisplayNameResult result)
+   {
+      //result.DisplayNameに更新した後のユーザ名が入ってる
+      Debug.Log($"ユーザ名の更新が成功しました : {result.DisplayName}");
+      settingErrorText.text = "ユーザ名を変更しました。";
    }
 }

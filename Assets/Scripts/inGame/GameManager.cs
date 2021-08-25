@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioManager audioManager = default;
     void Start()
     {
-        audioManager.BGMPlay(0);
         StartCoroutine(GameStart());
         StartCoroutine(MissionWindowIn());
         battleUICanvasGroup.alpha = 0;
@@ -27,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator GameStart()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         mainCamera.gameObject.SetActive(true);
         characterCamera.gameObject.SetActive(false);
         battleUICanvasGroup.alpha = 1;
