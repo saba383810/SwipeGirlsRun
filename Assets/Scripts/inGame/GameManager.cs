@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text missionText =default;
     private Player player;
     [SerializeField] private GameObject[] characterPrefabs = new GameObject[4];
+    [SerializeField] private AudioManager audioManager = default;
     void Start()
     {
         StartCoroutine(GameStart());
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator GameStart()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         mainCamera.gameObject.SetActive(true);
         characterCamera.gameObject.SetActive(false);
         battleUICanvasGroup.alpha = 1;

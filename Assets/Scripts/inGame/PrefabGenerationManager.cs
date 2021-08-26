@@ -87,9 +87,9 @@ public class PrefabGenerationManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         while (true)
         {
-            yield return new WaitUntil(() => player.transform.position.z > (100 * terrainCnt) - 80);
+            yield return new WaitUntil(() => player.transform.position.z > (158 * terrainCnt) - 80);
             var randNum = Random.Range(0, 1);
-            Instantiate(terrainPrefabs[randNum]).transform.position = new Vector3(-30, 0.5f, terrainCnt * 100);
+            Instantiate(terrainPrefabs[terrainCnt%3]).transform.position = new Vector3(0, 0, terrainCnt * 158);
             terrainCnt++;
             yield return null;
         }
