@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Ads;
 using UnityEngine;
 using DG.Tweening;
 using PlayFab;
@@ -11,6 +12,7 @@ using UnityEngine.UI;
 public class TItleButtonManager : MonoBehaviour
 {
    [SerializeField] private CanvasGroup startButton =default;
+   [SerializeField] private CanvasGroup slideButton =default;
    [SerializeField] private GameObject whiteBack=default;
    [SerializeField] private GameObject stageButtonGroup =default;
    [SerializeField] private CanvasGroup stageSelectView = default;
@@ -34,32 +36,51 @@ public class TItleButtonManager : MonoBehaviour
    [SerializeField] private CanvasGroup backGroundImg =default;
    [SerializeField] private CanvasGroup splashImg = default;
    [SerializeField] private AudioManager audioManager =default;
+   [SerializeField] private CanvasGroup rewardPanel =default;
+   [SerializeField] private CanvasGroup rewardConfirmWindow =default;
+   private int misakiGet = 0;
+   private int tokoGet = 0;
+   private int kohakuGet = 0;
+   private int yukoGet = 0;
+   
    private bool nameEnable = false;
    private static bool firstLoaded = false;
+   private int playerCharacterNum;
    
    public bool flickLock =false;
 
    IEnumerator Start()
    {
+      misakiGet = PlayerPrefs.GetInt("MisakiGet");
+      tokoGet = PlayerPrefs.GetInt("TokoGet");
+      kohakuGet = PlayerPrefs.GetInt("KohakuGet");
+      yukoGet = PlayerPrefs.GetInt("YukoGet");
+      
+      playerCharacterNum= PlayerPrefs.GetInt("PlayerCharacterNum");
+      
+      CharaRewardCheck(playerCharacterNum);
+      
       if (!firstLoaded)
       {
+         flickLock = true;
          backGroundImg.gameObject.SetActive(true);
          backGroundImg.alpha = 1;
          if (PlayerPrefs.GetString("PlayerName") == "")
          {
+            PlayerPrefs.SetInt("MisakiGet",1);
             yield return new WaitForSeconds(1f);
             playerNameRegisterPanel.gameObject.SetActive(true);
             playerNameRegisterPanel.DOFade(1, 1);
          }
          else
          {
-            StartCoroutine(splashStart());
+            StartCoroutine(SplashStart());
          }
          firstLoaded = true;
       }
 
-      var playerNum = PlayerPrefs.GetInt("PlayerCharacterNum");
-      switch (playerNum)
+      playerCharacterNum = PlayerPrefs.GetInt("PlayerCharacterNum");
+      switch (playerCharacterNum)
       {
          case 0:
             mainCamera.position = new Vector3(6, 0.75f, 0);
@@ -138,19 +159,24 @@ public class TItleButtonManager : MonoBehaviour
 
    private IEnumerator StartButtonClickedMove()
    {
-      startButton.DOFade(0, 0.2f);
+      startButton.DOFade(0, 0.2f).OnComplete(()=>
+      {
+         startButton.gameObject.SetActive(false);
+         slideButton.gameObject.SetActive(false);
+      });
       
-      whiteBack.transform.localPosition = new Vector3(0, -2150, 0);
-      whiteBack.transform.DOLocalMove(new Vector3(0, -2350, 0),0.2f).OnComplete(() =>
+      whiteBack.transform.localPosition = new Vector3(0, -2100, 0);
+      whiteBack.transform.DOLocalMove(new Vector3(0, -2200, 0),0.2f).OnComplete(() =>
       {
          whiteBack.transform.DOLocalMove(new Vector3(0, 0, 0),0.8f);
       });
-      startButton.gameObject.SetActive(false);
+     
+      
      
       yield return new WaitForSeconds(1f);
       modeSelectHeader.SetActive(true);
-      modeSelectHeader.transform.position =  new Vector3(2493, 2694, 0);
-      modeSelectHeader.transform.DOMove(new Vector3(447, 2333, 0),0.8f);
+      modeSelectHeader.transform.localPosition =  new Vector3(2000, 1370, 0);
+      modeSelectHeader.transform.DOLocalMove(new Vector3(-200, 1000, 0),0.8f);
       yield return new WaitForSeconds(0.3f);
       foreach (var button in modeSelectButtons)
       {
@@ -177,20 +203,24 @@ public class TItleButtonManager : MonoBehaviour
                button.gameObject.SetActive(false);
             }
 
-            modeSelectHeader.transform.DOMove(new Vector3(2493, 2694, 0), 0.4f).OnComplete(() =>
+            modeSelectHeader.transform.DOLocalMove(new Vector3(2000, 1370, 0), 0.4f).OnComplete(() =>
             {
                modeSelectHeader.SetActive(false);
             });
-
+            startButton.alpha = 0;
             startButton.gameObject.SetActive(true);
             startButton.DOFade(1.0f, 0.4f);
-            whiteBack.transform.DOLocalMove(new Vector3(0, -2150, 0), 0.8f);
+            slideButton.alpha = 0;
+            slideButton.gameObject.SetActive(true);
+            slideButton.DOFade(1.0f, 0.4f);
+            
+            whiteBack.transform.DOLocalMove(new Vector3(0, -2100, 0), 0.8f);
             break;
          }
          // StageSelect to modeSelect
          case 1:
             stageSelectView.DOFade(0, 0.5f);
-            stageSelectHeader.transform.DOMove(new Vector3(2493, 2694, 0),0.8f).OnComplete(() =>
+            stageSelectHeader.transform.DOLocalMove(new Vector3(2000, 1370, 0),0.8f).OnComplete(() =>
             {
                stageSelectHeader.SetActive(false);
             });
@@ -215,7 +245,7 @@ public class TItleButtonManager : MonoBehaviour
                button.DOFade(0f, 0.3f).OnComplete(()=>button.gameObject.SetActive(false));
                yield return new WaitForSeconds(0.15f);
             }
-            endlessModeHeader.transform.DOMove(new Vector3(2493, 2694, 0),0.8f).OnComplete(()=>endlessModeHeader.SetActive(false));
+            endlessModeHeader.transform.DOLocalMove(new Vector3(2000, 1370, 0),0.8f).OnComplete(()=>endlessModeHeader.SetActive(false));
             yourWorldDataPanel.transform.DOLocalMove(new Vector3(2500,-125,0), 0.8f).OnComplete(()=>yourWorldDataPanel.SetActive(false));
             
             foreach (var button in modeSelectButtons) {button.gameObject.SetActive(true); }
@@ -241,8 +271,8 @@ public class TItleButtonManager : MonoBehaviour
       foreach (var button in modeSelectButtons) {button.gameObject.SetActive(false); }
       
       stageSelectHeader.SetActive(true);
-      stageSelectHeader.transform.position =  new Vector3(2493, 2694, 0);
-      stageSelectHeader.transform.DOMove(new Vector3(447, 2333, 0),0.8f);
+      stageSelectHeader.transform.localPosition =  new Vector3(2000, 1370, 0);
+      stageSelectHeader.transform.DOLocalMove(new Vector3(-200, 1000, 0),0.8f);
       
       stageButtonGroup.SetActive(true);
       stageSelectView.DOFade(1.0f, 0.5f);
@@ -267,21 +297,70 @@ public class TItleButtonManager : MonoBehaviour
              mainCamera.transform.DOMoveX(12, 0.5f);
              PlayerPrefs.SetInt("PlayerCharacterNum",3);
              text1.GetComponent<Text>().text = "Yuko";
+             
+             if (yukoGet == 0)
+             {
+                startButton.interactable = false;
+                rewardPanel.alpha = 0;
+                rewardPanel.gameObject.SetActive(true);
+                rewardPanel.DOFade(1, 0.4f);
+             }
+             else
+             {
+                startButton.interactable = true;
+                rewardPanel.gameObject.SetActive(false);
+             }
              break;
           case 1:
              mainCamera.transform.DOMoveX(6, 0.5f);
              PlayerPrefs.SetInt("PlayerCharacterNum",0);
              text1.GetComponent<Text>().text = "Misaki";
+             if (misakiGet == 0)
+             {
+                startButton.interactable = false;
+                rewardPanel.alpha = 0;
+                rewardPanel.gameObject.SetActive(true);
+                rewardPanel.DOFade(1, 0.4f);
+             }
+             else
+             {
+                startButton.interactable = true;
+                rewardPanel.gameObject.SetActive(false);
+             }
              break;
           case 2:
              mainCamera.transform.DOMoveX(8, 0.5f);
              PlayerPrefs.SetInt("PlayerCharacterNum",1);
              text1.GetComponent<Text>().text = "Toko";
+             if (tokoGet == 0)
+             {
+                startButton.interactable = false;
+                rewardPanel.alpha = 0;
+                rewardPanel.gameObject.SetActive(true);
+                rewardPanel.DOFade(1, 0.4f);
+             }
+             else
+             {
+                startButton.interactable = true;
+                rewardPanel.gameObject.SetActive(false);
+             }
              break;
           case 3:
              mainCamera.transform.DOMoveX(10, 0.5f);
              PlayerPrefs.SetInt("PlayerCharacterNum",2);
              text1.GetComponent<Text>().text = "Kohaku";
+             if (kohakuGet == 0)
+             {
+                startButton.interactable = false;
+                rewardPanel.alpha = 0;
+                rewardPanel.gameObject.SetActive(true);
+                rewardPanel.DOFade(1, 0.4f);
+             }
+             else
+             {
+                startButton.interactable = true;
+                rewardPanel.gameObject.SetActive(false);
+             }
              break;
        }
 
@@ -290,28 +369,76 @@ public class TItleButtonManager : MonoBehaviour
    // ReSharper disable Unity.PerformanceAnalysis
    private IEnumerator OnRightArrowButtonClickedMove()
    {
-      var playerCharacterNum= PlayerPrefs.GetInt("PlayerCharacterNum");
+      playerCharacterNum= PlayerPrefs.GetInt("PlayerCharacterNum");
       switch (playerCharacterNum)
       {
          case 0:
             mainCamera.transform.DOMoveX(8,0.5f);
             PlayerPrefs.SetInt("PlayerCharacterNum",1);
             text1.GetComponent<Text>().text = "Toko";
+            if (tokoGet == 0)
+            {
+               startButton.interactable = false;
+               rewardPanel.alpha = 0;
+               rewardPanel.gameObject.SetActive(true);
+               rewardPanel.DOFade(1, 0.4f);
+            }
+            else
+            {
+               startButton.interactable = true;
+               rewardPanel.gameObject.SetActive(false);
+            }
             break;
          case 1:
             mainCamera.transform.DOMoveX(10,0.5f);
             PlayerPrefs.SetInt("PlayerCharacterNum",2);
             text1.GetComponent<Text>().text = "Kohaku";
+            if (kohakuGet == 0)
+            {
+               startButton.interactable = false;
+               rewardPanel.alpha = 0;
+               rewardPanel.gameObject.SetActive(true);
+               rewardPanel.DOFade(1, 0.4f);
+            }
+            else
+            {
+               startButton.interactable = true;
+               rewardPanel.gameObject.SetActive(false);
+            }
             break;
          case 2:
             mainCamera.transform.DOMoveX(12,0.5f);
             PlayerPrefs.SetInt("PlayerCharacterNum",3);
             text1.GetComponent<Text>().text = "Yuko";
+            if (yukoGet == 0)
+            {
+               startButton.interactable = false;
+               rewardPanel.alpha = 0;
+               rewardPanel.gameObject.SetActive(true);
+               rewardPanel.DOFade(1, 0.4f);
+            }
+            else
+            {
+               startButton.interactable = true;
+               rewardPanel.gameObject.SetActive(false);
+            }
             break;
          case 3:
             mainCamera.transform.DOMoveX(6,0.5f);
             PlayerPrefs.SetInt("PlayerCharacterNum",0);
             text1.GetComponent<Text>().text = "Misaki";
+            if (misakiGet == 0)
+            {
+               startButton.interactable = false;
+               rewardPanel.alpha = 0;
+               rewardPanel.gameObject.SetActive(true);
+               rewardPanel.DOFade(1, 0.4f);
+            }
+            else
+            {
+               startButton.interactable = true;
+               rewardPanel.gameObject.SetActive(false);
+            }
             break;
       }
       yield return null;
@@ -327,8 +454,8 @@ public class TItleButtonManager : MonoBehaviour
       
       
       endlessModeHeader.SetActive(true);
-      endlessModeHeader.transform.position =  new Vector3(2493, 2694, 0);
-      endlessModeHeader.transform.DOMove(new Vector3(447, 2333, 0),0.8f);
+      endlessModeHeader.transform.localPosition =  new Vector3(2000, 1370, 0);
+      endlessModeHeader.transform.DOLocalMove(new Vector3(-200, 1000, 0),0.8f);
       yield return new WaitForSeconds(0.5f);
       
       yourWorldDataPanel.transform.localPosition = new Vector3(2000,0,0);
@@ -433,7 +560,8 @@ public class TItleButtonManager : MonoBehaviour
       playerNameRegisterPanel.DOFade(0, 1).OnComplete(()=>
          playerNameRegisterPanel.gameObject.SetActive(false)
       );
-      StartCoroutine(splashStart());
+      CharaRewardCheck(playerCharacterNum);
+      StartCoroutine(SplashStart());
    }
 
    //ユーザ名の更新失敗
@@ -444,7 +572,7 @@ public class TItleButtonManager : MonoBehaviour
       settingErrorText.text = "すでにその名前は使用されています。";
    }
 
-   IEnumerator splashStart()
+   private IEnumerator SplashStart()
    {
       splashImg.gameObject.SetActive(true);
       yield return new WaitForSeconds(1f);
@@ -456,10 +584,12 @@ public class TItleButtonManager : MonoBehaviour
       backGroundImg.DOFade(0, 1);
       yield return new WaitForSeconds(1f);
       backGroundImg.gameObject.SetActive(false);
+      flickLock = false;
    }
 
    public void OnSettingButtonClicked()
    {
+      flickLock = true;
       settingErrorText.text = "";
       audioManager.SePlay(0);
       settingPanelCanvasGroup.gameObject.SetActive(true);
@@ -468,6 +598,7 @@ public class TItleButtonManager : MonoBehaviour
 
    public void OnExitSettingClicked()
    {
+      flickLock = false;
       audioManager.SePlay(0);
       settingPanelCanvasGroup.DOFade(0, 0.5f).OnComplete(() => settingPanelCanvasGroup.gameObject.SetActive(false));
    }
@@ -501,5 +632,86 @@ public class TItleButtonManager : MonoBehaviour
       //result.DisplayNameに更新した後のユーザ名が入ってる
       Debug.Log($"ユーザ名の更新が成功しました : {result.DisplayName}");
       settingErrorText.text = "ユーザ名を変更しました。";
+   }
+
+   public void RewardButtonClicked()
+   {
+      rewardConfirmWindow.alpha = 0;
+      rewardConfirmWindow.gameObject.SetActive(true);
+      rewardConfirmWindow.DOFade(1, 0.5f);
+   }
+
+   public void RewardWindowExit()
+   {
+      rewardConfirmWindow.DOFade(0, 0.5f).OnComplete(() => rewardConfirmWindow.gameObject.SetActive(false));
+      CharaRewardCheck(playerCharacterNum);
+   }
+
+   public void CharaRewardCheck(int charNum)
+   {
+      misakiGet = PlayerPrefs.GetInt("MisakiGet");
+      tokoGet = PlayerPrefs.GetInt("TokoGet");
+      kohakuGet = PlayerPrefs.GetInt("KohakuGet");
+      yukoGet = PlayerPrefs.GetInt("YukoGet");
+      switch (charNum)
+      {
+         case 0:
+            if (misakiGet == 0)
+            {
+               startButton.interactable = false;
+               rewardPanel.alpha = 0;
+               rewardPanel.gameObject.SetActive(true);
+               rewardPanel.DOFade(1, 0.4f);
+            }
+            else
+            {
+               startButton.interactable = true;
+               rewardPanel.gameObject.SetActive(false);
+            }
+            break;
+         case 1:
+            if (tokoGet == 0)
+            {
+               startButton.interactable = false;
+               rewardPanel.alpha = 0;
+               rewardPanel.gameObject.SetActive(true);
+               rewardPanel.DOFade(1, 0.4f);
+            }
+            else
+            {
+               startButton.interactable = true;
+               rewardPanel.gameObject.SetActive(false);
+            }
+            break;
+         case 2:
+            if (kohakuGet == 0)
+            {
+               startButton.interactable = false;
+               rewardPanel.alpha = 0;
+               rewardPanel.gameObject.SetActive(true);
+               rewardPanel.DOFade(1, 0.4f);
+            }
+            else
+            {
+               startButton.interactable = true;
+               rewardPanel.gameObject.SetActive(false);
+            }
+            break;
+         case 3:
+            if (yukoGet == 0)
+            {
+               startButton.interactable = false;
+               rewardPanel.alpha = 0;
+               rewardPanel.gameObject.SetActive(true);
+               rewardPanel.DOFade(1, 0.4f);
+            }
+            else
+            {
+               startButton.interactable = true;
+               rewardPanel.gameObject.SetActive(false);
+            }
+            break;
+         
+      }
    }
 }

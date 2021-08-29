@@ -37,7 +37,7 @@ CGPROGRAM
 #include "UnityCG.cginc"
 #include "AutoLight.cginc"
 #define ENABLE_NORMAL_MAP
-#include "CharaMain.cg"
+#include "CharaMain.cginc"
 ENDCG
 		}
 
@@ -50,7 +50,7 @@ CGPROGRAM
 #pragma vertex vert
 #pragma fragment frag
 #include "UnityCG.cginc"
-#include "CharaOutline.cg"
+#include "CharaOutline.cginc"
 ENDCG
 		}
 

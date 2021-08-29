@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
@@ -18,7 +19,7 @@ public class AudioManager : MonoBehaviour
 
     private bool isInit = false;
     // Start is called before the first frame update
-    private void Start()
+    private IEnumerator Start()
     {
 
         bgmIntroAudioSource =  transform.GetChild(0).gameObject.AddComponent<AudioSource>();
@@ -43,18 +44,25 @@ public class AudioManager : MonoBehaviour
         bgmIntroAudioSource.volume = bgmVolume;
         bgmLoopAudioSource.volume = bgmVolume;
         seAudioSource.volume = seVolume;
+
         
         BGMPlay(0);
+        if (SceneManager.GetActiveScene().name != "Title")
+        {
+            yield return new WaitForSeconds(1);
+            SePlay(0);
+            yield return new WaitForSeconds(1.2f);
+            SePlay(1);
+        }
+
         isInit = true;
     }
     
 
     public void BGMPlay(int bgmNum)
     {
-        
         bgmLoopAudioSource.clip = bgmLoopAudioClips[bgmNum];
-       
-        
+
         if (bgmIntroAudioClips[bgmNum] != null)
         {
             bgmIntroAudioSource.clip = bgmIntroAudioClips[bgmNum];
@@ -67,6 +75,12 @@ public class AudioManager : MonoBehaviour
             bgmLoopAudioSource.Play();
             Debug.Log("再生。");
         }
+    }
+
+    public void BGMStop()
+    {
+        bgmLoopAudioSource.Stop();
+        bgmIntroAudioSource.Stop();
     }
 
     public void SePlay(int seNum)
@@ -88,4 +102,6 @@ public class AudioManager : MonoBehaviour
         seAudioSource.volume = seSlider.value;
         PlayerPrefs.SetFloat("SEVolume",seSlider.value);
     }
+    
+    
 }

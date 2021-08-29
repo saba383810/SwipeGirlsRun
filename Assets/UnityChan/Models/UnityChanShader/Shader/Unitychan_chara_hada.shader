@@ -32,7 +32,7 @@ CGPROGRAM
 #pragma fragment frag
 #include "UnityCG.cginc"
 #include "AutoLight.cginc"
-#include "CharaSkin.cg"
+#include "CharaSkin.cginc"
 ENDCG
 		}
 
@@ -45,7 +45,7 @@ CGPROGRAM
 #pragma vertex vert
 #pragma fragment frag
 #include "UnityCG.cginc"
-#include "CharaOutline.cg"
+#include "CharaOutline.cginc"
 ENDCG
 		}
 
