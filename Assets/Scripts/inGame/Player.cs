@@ -1,9 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using Ads;
 using UnityEngine;
-using UnityEngine.Serialization;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 
@@ -185,6 +182,7 @@ public class Player : MonoBehaviour
        //広告を表示  
        audioManager.BGMStop();
        yield return StartCoroutine(InterstitialAds.ShowInterstitial());
+       audioManager.BGMPlay(1);
        
    }
 
@@ -270,6 +268,7 @@ public class Player : MonoBehaviour
        //広告を表示  
        audioManager.BGMStop();
        yield return StartCoroutine(InterstitialAds.ShowInterstitial());
+       audioManager.BGMPlay(1);
        
    }
    private IEnumerator MissionFailed()
@@ -305,6 +304,8 @@ public class Player : MonoBehaviour
        //広告を表示  
        audioManager.BGMStop();
        yield return StartCoroutine(InterstitialAds.ShowInterstitial());
+       
+       audioManager.BGMPlay(1);
        
    }
 }

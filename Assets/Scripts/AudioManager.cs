@@ -6,13 +6,11 @@ using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] private AudioClip[] bgmIntroAudioClips = new AudioClip[4];
     [SerializeField] private AudioClip[] bgmLoopAudioClips =new AudioClip[4];
     [SerializeField] private AudioClip[] seAudioClips = new AudioClip[4];
     [SerializeField] private Slider bgmSlider =default;
     [SerializeField] private Slider seSlider = default;
     private AudioSource bgmLoopAudioSource;
-    private AudioSource bgmIntroAudioSource;
     private AudioSource seAudioSource;
     private float bgmVolume ;
     private float seVolume ;
@@ -21,13 +19,9 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     private IEnumerator Start()
     {
-
-        bgmIntroAudioSource =  transform.GetChild(0).gameObject.AddComponent<AudioSource>();
         bgmLoopAudioSource = transform.GetChild(0).GetComponent<AudioSource>();
         seAudioSource = transform.GetChild(1).GetComponent<AudioSource>();
         
-        bgmIntroAudioSource.loop = false;
-        bgmIntroAudioSource.playOnAwake = false;
         
         bgmLoopAudioSource.loop = true;
         bgmLoopAudioSource.playOnAwake = false;
@@ -41,7 +35,6 @@ public class AudioManager : MonoBehaviour
         bgmSlider.value = bgmVolume;
         seSlider.value = seVolume;
 
-        bgmIntroAudioSource.volume = bgmVolume;
         bgmLoopAudioSource.volume = bgmVolume;
         seAudioSource.volume = seVolume;
 
@@ -62,25 +55,15 @@ public class AudioManager : MonoBehaviour
     public void BGMPlay(int bgmNum)
     {
         bgmLoopAudioSource.clip = bgmLoopAudioClips[bgmNum];
-
-        if (bgmIntroAudioClips[bgmNum] != null)
-        {
-            bgmIntroAudioSource.clip = bgmIntroAudioClips[bgmNum];
-            bgmIntroAudioSource.Play();
-            Debug.Log("intro");
-            bgmLoopAudioSource.PlayScheduled(AudioSettings.dspTime + bgmIntroAudioClips[bgmNum].length);
-        }
-        else
-        {
-            bgmLoopAudioSource.Play();
-            Debug.Log("再生。");
-        }
+        
+        bgmLoopAudioSource.Play();
+        Debug.Log("再生。");
+        
     }
 
     public void BGMStop()
     {
         bgmLoopAudioSource.Stop();
-        bgmIntroAudioSource.Stop();
     }
 
     public void SePlay(int seNum)
@@ -90,8 +73,6 @@ public class AudioManager : MonoBehaviour
 
     public void ChangeBgmSlider()
     {
-        
-        bgmIntroAudioSource.volume = bgmSlider.value;
         bgmLoopAudioSource.volume = bgmSlider.value;
         PlayerPrefs.SetFloat("BGMVolume",bgmSlider.value);
     }
@@ -100,6 +81,14 @@ public class AudioManager : MonoBehaviour
     {
         if(isInit) SePlay(0);
         seAudioSource.volume = seSlider.value;
+        PlayerPrefs.SetFloat("SEVolume",seSlider.value);
+    }
+
+    public void AudioSet(float bgm,float se)
+    {
+        bgmSlider.value = bgm;
+        seSlider.value = se;
+        PlayerPrefs.SetFloat("BGMVolume",bgmSlider.value);
         PlayerPrefs.SetFloat("SEVolume",seSlider.value);
     }
     

@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Ads;
 using UnityEngine;
 using DG.Tweening;
 using PlayFab;
@@ -68,6 +66,7 @@ public class TItleButtonManager : MonoBehaviour
          if (PlayerPrefs.GetString("PlayerName") == "")
          {
             PlayerPrefs.SetInt("MisakiGet",1);
+            audioManager.AudioSet(0.1f,0.1f);
             yield return new WaitForSeconds(1f);
             playerNameRegisterPanel.gameObject.SetActive(true);
             playerNameRegisterPanel.DOFade(1, 1);
@@ -246,7 +245,7 @@ public class TItleButtonManager : MonoBehaviour
                yield return new WaitForSeconds(0.15f);
             }
             endlessModeHeader.transform.DOLocalMove(new Vector3(2000, 1370, 0),0.8f).OnComplete(()=>endlessModeHeader.SetActive(false));
-            yourWorldDataPanel.transform.DOLocalMove(new Vector3(2500,-125,0), 0.8f).OnComplete(()=>yourWorldDataPanel.SetActive(false));
+            yourWorldDataPanel.transform.DOLocalMove(new Vector3(2500,0,0), 0.8f).OnComplete(()=>yourWorldDataPanel.SetActive(false));
             
             foreach (var button in modeSelectButtons) {button.gameObject.SetActive(true); }
             foreach (var button in modeSelectButtons)
@@ -649,14 +648,11 @@ public class TItleButtonManager : MonoBehaviour
 
    public void CharaRewardCheck(int charNum)
    {
-      misakiGet = PlayerPrefs.GetInt("MisakiGet");
-      tokoGet = PlayerPrefs.GetInt("TokoGet");
-      kohakuGet = PlayerPrefs.GetInt("KohakuGet");
-      yukoGet = PlayerPrefs.GetInt("YukoGet");
+      
       switch (charNum)
       {
          case 0:
-            if (misakiGet == 0)
+            if (PlayerPrefs.GetInt("MisakiGet") == 0)
             {
                startButton.interactable = false;
                rewardPanel.alpha = 0;
@@ -670,7 +666,7 @@ public class TItleButtonManager : MonoBehaviour
             }
             break;
          case 1:
-            if (tokoGet == 0)
+            if (PlayerPrefs.GetInt("TokoGet") == 0)
             {
                startButton.interactable = false;
                rewardPanel.alpha = 0;
@@ -684,7 +680,7 @@ public class TItleButtonManager : MonoBehaviour
             }
             break;
          case 2:
-            if (kohakuGet == 0)
+            if (PlayerPrefs.GetInt("KohakuGet") == 0)
             {
                startButton.interactable = false;
                rewardPanel.alpha = 0;
@@ -698,7 +694,7 @@ public class TItleButtonManager : MonoBehaviour
             }
             break;
          case 3:
-            if (yukoGet == 0)
+            if (PlayerPrefs.GetInt("YukoGet") == 0)
             {
                startButton.interactable = false;
                rewardPanel.alpha = 0;
@@ -711,7 +707,6 @@ public class TItleButtonManager : MonoBehaviour
                rewardPanel.gameObject.SetActive(false);
             }
             break;
-         
       }
    }
 }

@@ -7975,9 +7975,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 232b188edea434849a3603623d89dec8, type: 3}
     - target: {fileID: 1184720447682957468, guid: cb81b57527d244003a4bffb02471c076, type: 3}
+      propertyPath: bgmLoopAudioClips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184720447682957468, guid: cb81b57527d244003a4bffb02471c076, type: 3}
       propertyPath: bgmLoopAudioClips.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 8c379f77a703645e69c08a903b7917cd, type: 3}
+      objectReference: {fileID: 8300000, guid: d936d9e2cbe1b4af1ad410d770679a86, type: 3}
+    - target: {fileID: 1184720447682957468, guid: cb81b57527d244003a4bffb02471c076, type: 3}
+      propertyPath: bgmLoopAudioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 33d6b564c36aa471492e7f59e04bc2d5, type: 3}
     - target: {fileID: 1184720447682957468, guid: cb81b57527d244003a4bffb02471c076, type: 3}
       propertyPath: bgmIntroAudioClips.Array.data[0]
       value: 

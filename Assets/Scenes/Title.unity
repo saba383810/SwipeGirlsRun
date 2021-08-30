@@ -277,11 +277,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 90
-    m_FontStyle: 1
+    m_FontSize: 80
+    m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 90
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -12221,18 +12221,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1024a40541164bc89247068018b2d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmIntroAudioClips:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   bgmLoopAudioClips:
-  - {fileID: 8300000, guid: b2693759bfc2c4e338ec292525e18144, type: 3}
+  - {fileID: 8300000, guid: 6ef8c43e547b64c968031de536126b23, type: 3}
   seAudioClips:
   - {fileID: 8300000, guid: a5163ecf6fb2b485ba6db08e2f53ecee, type: 3}
   - {fileID: 8300000, guid: dccb993f643e84222ac6167e73ff6072, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
   bgmSlider: {fileID: 243085547}
   seSlider: {fileID: 1047372733}
 --- !u!81 &1725224644
