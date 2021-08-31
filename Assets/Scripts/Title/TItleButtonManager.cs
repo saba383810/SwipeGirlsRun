@@ -32,15 +32,19 @@ public class TItleButtonManager : MonoBehaviour
    [SerializeField] private Text errorText =default;
    [SerializeField] private Text settingErrorText = default;
    [SerializeField] private CanvasGroup backGroundImg =default;
-   [SerializeField] private CanvasGroup splashImg = default;
+   [SerializeField] private CanvasGroup sabaNoGamesLogo = default;
+   [SerializeField] private CanvasGroup unityChanLogo = default;
    [SerializeField] private AudioManager audioManager =default;
    [SerializeField] private CanvasGroup rewardPanel =default;
    [SerializeField] private CanvasGroup rewardConfirmWindow =default;
+   [SerializeField] private LoadingManager loadingManager =default;
+   [SerializeField] private CanvasGroup loadingUI =default;
+   [SerializeField] private Animator runAnim = default;
    private int misakiGet = 0;
    private int tokoGet = 0;
    private int kohakuGet = 0;
    private int yukoGet = 0;
-   
+   private static readonly int CharacterNum = Animator.StringToHash("CharaNum");
    private bool nameEnable = false;
    private static bool firstLoaded = false;
    private int playerCharacterNum;
@@ -66,7 +70,7 @@ public class TItleButtonManager : MonoBehaviour
          if (PlayerPrefs.GetString("PlayerName") == "")
          {
             PlayerPrefs.SetInt("MisakiGet",1);
-            audioManager.AudioSet(0.1f,0.1f);
+            audioManager.AudioSet(0.2f,0.2f);
             yield return new WaitForSeconds(1f);
             playerNameRegisterPanel.gameObject.SetActive(true);
             playerNameRegisterPanel.DOFade(1, 1);
@@ -76,6 +80,13 @@ public class TItleButtonManager : MonoBehaviour
             StartCoroutine(SplashStart());
          }
          firstLoaded = true;
+      }
+      else
+      {
+         runAnim.SetInteger(CharacterNum, PlayerPrefs.GetInt("PlayerCharacterNum"));
+         loadingUI.alpha = 1;
+         loadingUI.gameObject.SetActive(true);
+         loadingUI.DOFade(0, 1f).OnComplete(() => loadingUI.gameObject.SetActive(false));
       }
 
       playerCharacterNum = PlayerPrefs.GetInt("PlayerCharacterNum");
@@ -296,70 +307,25 @@ public class TItleButtonManager : MonoBehaviour
              mainCamera.transform.DOMoveX(12, 0.5f);
              PlayerPrefs.SetInt("PlayerCharacterNum",3);
              text1.GetComponent<Text>().text = "Yuko";
-             
-             if (yukoGet == 0)
-             {
-                startButton.interactable = false;
-                rewardPanel.alpha = 0;
-                rewardPanel.gameObject.SetActive(true);
-                rewardPanel.DOFade(1, 0.4f);
-             }
-             else
-             {
-                startButton.interactable = true;
-                rewardPanel.gameObject.SetActive(false);
-             }
+             CharaRewardCheck(3);
              break;
           case 1:
              mainCamera.transform.DOMoveX(6, 0.5f);
              PlayerPrefs.SetInt("PlayerCharacterNum",0);
              text1.GetComponent<Text>().text = "Misaki";
-             if (misakiGet == 0)
-             {
-                startButton.interactable = false;
-                rewardPanel.alpha = 0;
-                rewardPanel.gameObject.SetActive(true);
-                rewardPanel.DOFade(1, 0.4f);
-             }
-             else
-             {
-                startButton.interactable = true;
-                rewardPanel.gameObject.SetActive(false);
-             }
+             CharaRewardCheck(0);
              break;
           case 2:
              mainCamera.transform.DOMoveX(8, 0.5f);
              PlayerPrefs.SetInt("PlayerCharacterNum",1);
              text1.GetComponent<Text>().text = "Toko";
-             if (tokoGet == 0)
-             {
-                startButton.interactable = false;
-                rewardPanel.alpha = 0;
-                rewardPanel.gameObject.SetActive(true);
-                rewardPanel.DOFade(1, 0.4f);
-             }
-             else
-             {
-                startButton.interactable = true;
-                rewardPanel.gameObject.SetActive(false);
-             }
+             CharaRewardCheck(1);
              break;
           case 3:
              mainCamera.transform.DOMoveX(10, 0.5f);
              PlayerPrefs.SetInt("PlayerCharacterNum",2);
              text1.GetComponent<Text>().text = "Kohaku";
-             if (kohakuGet == 0)
-             {
-                startButton.interactable = false;
-                rewardPanel.alpha = 0;
-                rewardPanel.gameObject.SetActive(true);
-                rewardPanel.DOFade(1, 0.4f);
-             }
-             else
-             {
-                startButton.interactable = true;
-                rewardPanel.gameObject.SetActive(false);
-             }
+             CharaRewardCheck(2);
              break;
        }
 
@@ -375,69 +341,25 @@ public class TItleButtonManager : MonoBehaviour
             mainCamera.transform.DOMoveX(8,0.5f);
             PlayerPrefs.SetInt("PlayerCharacterNum",1);
             text1.GetComponent<Text>().text = "Toko";
-            if (tokoGet == 0)
-            {
-               startButton.interactable = false;
-               rewardPanel.alpha = 0;
-               rewardPanel.gameObject.SetActive(true);
-               rewardPanel.DOFade(1, 0.4f);
-            }
-            else
-            {
-               startButton.interactable = true;
-               rewardPanel.gameObject.SetActive(false);
-            }
+            CharaRewardCheck(1);
             break;
          case 1:
             mainCamera.transform.DOMoveX(10,0.5f);
             PlayerPrefs.SetInt("PlayerCharacterNum",2);
             text1.GetComponent<Text>().text = "Kohaku";
-            if (kohakuGet == 0)
-            {
-               startButton.interactable = false;
-               rewardPanel.alpha = 0;
-               rewardPanel.gameObject.SetActive(true);
-               rewardPanel.DOFade(1, 0.4f);
-            }
-            else
-            {
-               startButton.interactable = true;
-               rewardPanel.gameObject.SetActive(false);
-            }
+            CharaRewardCheck(2);
             break;
          case 2:
             mainCamera.transform.DOMoveX(12,0.5f);
             PlayerPrefs.SetInt("PlayerCharacterNum",3);
             text1.GetComponent<Text>().text = "Yuko";
-            if (yukoGet == 0)
-            {
-               startButton.interactable = false;
-               rewardPanel.alpha = 0;
-               rewardPanel.gameObject.SetActive(true);
-               rewardPanel.DOFade(1, 0.4f);
-            }
-            else
-            {
-               startButton.interactable = true;
-               rewardPanel.gameObject.SetActive(false);
-            }
+            CharaRewardCheck(3);
             break;
          case 3:
             mainCamera.transform.DOMoveX(6,0.5f);
             PlayerPrefs.SetInt("PlayerCharacterNum",0);
             text1.GetComponent<Text>().text = "Misaki";
-            if (misakiGet == 0)
-            {
-               startButton.interactable = false;
-               rewardPanel.alpha = 0;
-               rewardPanel.gameObject.SetActive(true);
-               rewardPanel.DOFade(1, 0.4f);
-            }
-            else
-            {
-               startButton.interactable = true;
-               rewardPanel.gameObject.SetActive(false);
-            }
+            CharaRewardCheck(0);
             break;
       }
       yield return null;
@@ -487,28 +409,25 @@ public class TItleButtonManager : MonoBehaviour
    
    private IEnumerator OnStageButtonClickedMove(int stageNum)
    {
-      
-      //TODO ローディングアニメション入れ
-
       switch (stageNum)
       {
          case 1:
-            SceneManager.LoadScene("Stage1");
+            loadingManager.NextScene("Stage1");
             break;
          case 2:
-            SceneManager.LoadScene("Stage2");
+            loadingManager.NextScene("Stage2");
             break;
          case 3:
-            SceneManager.LoadScene("Stage3");
+            loadingManager.NextScene("Stage3");
             break;
          case 4:
-            SceneManager.LoadScene("Stage4");
+            loadingManager.NextScene("Stage4");
             break;
          case 5:
-            SceneManager.LoadScene("Stage5");
+            loadingManager.NextScene("Stage5");
             break;
          case 6:
-            SceneManager.LoadScene("Endless");
+            loadingManager.NextScene("Endless");
             break;
       }
 
@@ -573,13 +492,21 @@ public class TItleButtonManager : MonoBehaviour
 
    private IEnumerator SplashStart()
    {
-      splashImg.gameObject.SetActive(true);
+      sabaNoGamesLogo.gameObject.SetActive(true);
       yield return new WaitForSeconds(1f);
-      splashImg.DOFade(1, 1);
+      sabaNoGamesLogo.DOFade(1, 1);
       yield return new WaitForSeconds(2f);
-      splashImg.DOFade(0, 1);
+      sabaNoGamesLogo.DOFade(0, 1);
+      yield return new WaitForSeconds(1f);
+      sabaNoGamesLogo.gameObject.SetActive(false);
+      
+      unityChanLogo.gameObject.SetActive(true);
+      unityChanLogo.DOFade(1, 1);
+      yield return new WaitForSeconds(2f);
+      unityChanLogo.DOFade(0, 1);
       yield return new WaitForSeconds(1.5f);
-      splashImg.gameObject.SetActive(false);
+      unityChanLogo.gameObject.SetActive(false);
+      
       backGroundImg.DOFade(0, 1);
       yield return new WaitForSeconds(1f);
       backGroundImg.gameObject.SetActive(false);
@@ -590,6 +517,7 @@ public class TItleButtonManager : MonoBehaviour
    {
       flickLock = true;
       settingErrorText.text = "";
+      settingRenameInputField.text = PlayerPrefs.GetString("PlayerName");
       audioManager.SePlay(0);
       settingPanelCanvasGroup.gameObject.SetActive(true);
       settingPanelCanvasGroup.DOFade(1, 0.5f);
@@ -643,27 +571,20 @@ public class TItleButtonManager : MonoBehaviour
    public void RewardWindowExit()
    {
       rewardConfirmWindow.DOFade(0, 0.5f).OnComplete(() => rewardConfirmWindow.gameObject.SetActive(false));
-      CharaRewardCheck(playerCharacterNum);
+      CharaRewardCheck(PlayerPrefs.GetInt("PlayerCharacterNum"));
    }
 
    public void CharaRewardCheck(int charNum)
    {
+      Debug.Log($"misakiGet {PlayerPrefs.GetInt("MisakiGet")} toko Get :{PlayerPrefs.GetInt("TokoGet")} kohakuGet:{PlayerPrefs.GetInt("KohakuGet")} YukoGet:{PlayerPrefs.GetInt("YukoGet")}");
       
       switch (charNum)
       {
          case 0:
-            if (PlayerPrefs.GetInt("MisakiGet") == 0)
-            {
-               startButton.interactable = false;
-               rewardPanel.alpha = 0;
-               rewardPanel.gameObject.SetActive(true);
-               rewardPanel.DOFade(1, 0.4f);
-            }
-            else
-            {
+            
                startButton.interactable = true;
                rewardPanel.gameObject.SetActive(false);
-            }
+            
             break;
          case 1:
             if (PlayerPrefs.GetInt("TokoGet") == 0)

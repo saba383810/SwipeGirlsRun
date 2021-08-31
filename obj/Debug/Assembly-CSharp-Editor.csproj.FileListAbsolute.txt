@@ -415,3 +415,4 @@
 /Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/UnityEngine.Monetization.pdb
 /Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/UnityEngine.Advertisements.pdb
 /Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/UnityEngine.Advertisements.Editor.pdb
+/Users/saba/Document/program/Unity/SwipeGirlsAction/Temp/Bin/Debug/2DUnitychanSamples.pdb

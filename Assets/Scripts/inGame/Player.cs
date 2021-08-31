@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     private GameObject retryButton;
     private string stageName;
     private AudioManager audioManager;
-    
+
     private void Awake()
     {
         mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>(); 
@@ -127,6 +127,7 @@ public class Player : MonoBehaviour
            isAttack = true;
            enemy = other.gameObject.GetComponent<Enemy>();
            enemy.HpDamage(1);
+           audioManager.SePlay(2);
            atkPoint -= 1;
            score += 10;
            Score.UpdateScore(score);
@@ -138,6 +139,7 @@ public class Player : MonoBehaviour
            }
            if (enemy.GetHp() > 0) return;
            other.gameObject.GetComponent<Enemy>().EnemyDestroy();
+           audioManager.SePlay(3);
            isAttack = false;
        }
        else

@@ -5,35 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class ResultButtonManager : MonoBehaviour
 {
+    [SerializeField] private LoadingManager loadingManager =default;
     public void OnHomeButtonClicked()
     {
-        SceneManager.LoadScene("Title");
+        loadingManager.NextScene("Title");
     }
 
     public void OnRetryButtonClicked()
     {
-        var stageName = SceneManager.GetActiveScene().name;
-        switch (stageName)
-        {
-            case "Stage1":
-                SceneManager.LoadScene("Stage1");
-                break;
-            case "Stage2":
-                SceneManager.LoadScene("Stage2");
-                break;
-            case "Stage3":
-                SceneManager.LoadScene("Stage3");
-                break;
-            case "Stage4":
-                SceneManager.LoadScene("Stage4");
-                break;
-            case "Stage5":
-                SceneManager.LoadScene("Stage5");
-                break;
-            case "Endless":
-                SceneManager.LoadScene("Endless");
-                break;
-        }
+        loadingManager.NextScene(SceneManager.GetActiveScene().name);
     }
 
     public void OnNextButtonClicked()
@@ -42,16 +22,16 @@ public class ResultButtonManager : MonoBehaviour
         switch (stageName)
         {
             case "Stage1":
-                SceneManager.LoadScene("Stage2");
+                loadingManager.NextScene("Stage2");
                 break;
             case "Stage2":
-                SceneManager.LoadScene("Stage3");
+                loadingManager.NextScene("Stage3");
                 break;
             case "Stage3":
-                SceneManager.LoadScene("Stage3");
+                loadingManager.NextScene("Stage4");
                 break;
             case "Stage4":
-                SceneManager.LoadScene("Stage3");
+                loadingManager.NextScene("Stage5");
                 break;
         }
     }

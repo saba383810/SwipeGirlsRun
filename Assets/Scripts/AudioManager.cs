@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour
         bgmLoopAudioSource.volume = bgmVolume;
         seAudioSource.volume = seVolume;
 
-        
+        yield return new WaitForSeconds(0.5f);
         BGMPlay(0);
         if (SceneManager.GetActiveScene().name != "Title")
         {
