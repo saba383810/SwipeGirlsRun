@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596354201103299748}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightHandMiddle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601431775733130452}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftHandIndex1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601629677963638760}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601529766802374280}
   - component: {fileID: 706581911702284798}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_hair04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601591819266769362}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601674715029139774}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt13_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596567557546552384}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601688029467283048}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596237127000423372}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601434156651539682}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightHandRing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596459011748620844}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601667802736594074}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt32_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +424,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601492339119577774}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_hair05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,7 +454,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596232427431004424}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftHandPinky2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596209506457297176}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Collar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596310408602689172}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftHandIndex2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -546,7 +546,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601312354687644898}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_hair08_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -577,7 +577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601592785202412366}
   - component: {fileID: 703112309599233546}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt20_R_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -620,7 +620,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596164504671947636}
   - component: {fileID: 702928209350610390}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt30_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -682,7 +682,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596487562770819652}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -713,7 +713,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601765469812608714}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: J_R_knee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -743,7 +743,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601468231195108608}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -775,7 +775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596534533599986258}
   - component: {fileID: 703406257649544208}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt20_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -837,7 +837,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601782436393715302}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftHandThumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -868,7 +868,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601427952961337002}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -900,7 +900,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601711675954391524}
   - component: {fileID: 702004426756631090}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -984,7 +984,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601751154770637964}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt22_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1015,7 +1015,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596557785016249964}
   - component: {fileID: 702405111305543262}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1098,7 +1098,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596301372791042188}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightHandPinky3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1129,7 +1129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601788754180975612}
   - component: {fileID: 703479608606884156}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_hair06_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1192,7 +1192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601669342334786926}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1223,7 +1223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601743002625605736}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftHandThumb4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1253,7 +1253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596195314792906786}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1295,7 +1295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601474004614218280}
   - component: {fileID: 703465540024934614}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_hair00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1358,7 +1358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601517938385282442}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightHandMiddle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1389,7 +1389,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596605751990544390}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftHandRing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1420,7 +1420,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596377271997867892}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_ribbon01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1451,7 +1451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596357143497052378}
   - component: {fileID: 702725068240241356}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt11_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1513,7 +1513,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601656382460354806}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1545,7 +1545,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601756956517507640}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightHandRing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1576,7 +1576,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596167648654848520}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightHandThumb4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1606,7 +1606,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596283268753990400}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: bone_eye_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1636,7 +1636,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601612530203465442}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1671,7 +1671,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601385374851484014}
   - component: {fileID: 703571411655135386}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_hair07_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1734,7 +1734,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601756570502197220}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightHandPinky2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1765,7 +1765,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601459348873955322}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightHandRing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1797,7 +1797,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601485640367264766}
   - component: {fileID: 702583748934757020}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_ribbon00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1860,7 +1860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601513539246018244}
   - component: {fileID: 703097973342637420}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt12_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1922,7 +1922,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596186072562993754}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftHandMiddle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1953,7 +1953,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601634129710406298}
   - component: {fileID: 702836045498379978}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_hair02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2016,7 +2016,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596268189181106514}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2049,7 +2049,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596655235007052518}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: J_R_ForeArm_00_tw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2079,7 +2079,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596479649799119898}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_hair11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2110,7 +2110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601681494119033440}
   - component: {fileID: 702849954070439200}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt30_L_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2152,7 +2152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601780246717484790}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_Hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2193,7 +2193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601759235799619940}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftHandThumb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2225,7 +2225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596448492545674790}
   - component: {fileID: 703564159548618222}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt11_R_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2268,7 +2268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596516615277106582}
   - component: {fileID: 702785153408286610}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_hair06_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2332,7 +2332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601386030623240264}
   - component: {fileID: 703412943136916330}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_hair07_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2395,7 +2395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596169050914034226}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftHandMiddle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2427,7 +2427,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596546616512633886}
   - component: {fileID: 702478001640738872}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: _body_summer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2573,7 +2573,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601316697667789944}
   - component: {fileID: 702644966314934164}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: head_collider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2619,7 +2619,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596248876252879122}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftHandRing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2649,7 +2649,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596176047554325544}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightHandIndex1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2680,7 +2680,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596582268978707684}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftHandThumb3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2711,7 +2711,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596610881886187936}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftHandMiddle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2743,7 +2743,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596212556447997424}
   - component: {fileID: 703466782221570130}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt30_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2806,7 +2806,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596385792421059008}
   - component: {fileID: 702575870781828016}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt11_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2869,7 +2869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601525892262482548}
   - component: {fileID: 703476858680011410}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_hair10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2933,7 +2933,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601762063680566696}
   - component: {fileID: 703672651886945300}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt11_L_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2975,7 +2975,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596307113644273058}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftHandRing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3006,7 +3006,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596395640911677658}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_ribbon03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3036,7 +3036,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601592499395047300}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3067,7 +3067,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596534194965287600}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightHandIndex3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3098,7 +3098,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601319277476465910}
   - component: {fileID: 703076450841978218}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt21_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3160,7 +3160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596307634188572362}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightHandThumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3191,7 +3191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601649419513541910}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: J_L_ForeArm_00_tw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3221,7 +3221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596378086224282442}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_hair01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3251,7 +3251,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596180580593514422}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: J_R_Elbow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3281,7 +3281,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596612514353203398}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt32_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3312,7 +3312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596321267537481622}
   - component: {fileID: 703070251083499414}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt20_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3374,7 +3374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601554490488886420}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: J_L_Arm_00_tw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3405,7 +3405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596598722781742684}
   - component: {fileID: 706540082615873030}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt12_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3467,7 +3467,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601704348515960472}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3497,7 +3497,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596267524499121078}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3528,7 +3528,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596383007864015832}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftHandPinky1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3559,7 +3559,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601539005554501282}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightHandIndex2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3590,7 +3590,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596223393765149824}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightHandPinky1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3621,7 +3621,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596178358635280746}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: J_R_Arm_00_tw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3652,7 +3652,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596526575540793962}
   - component: {fileID: 702616383886861194}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_hair00_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3694,7 +3694,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601516144820604574}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_Spine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3730,7 +3730,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601384490945409404}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftHandIndex3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3760,7 +3760,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601466697003394428}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt22_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3790,7 +3790,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601690483918396034}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3822,7 +3822,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596318448894594552}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Ribbon_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3853,7 +3853,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601343852688212338}
   - component: {fileID: 702563964956050356}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_ribbon02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3916,7 +3916,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601376569315254944}
   - component: {fileID: 702920920723490656}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt21_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3978,7 +3978,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601328443719884950}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: bone_eye_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4009,7 +4009,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601558545109761728}
   - component: {fileID: 698423503528541682}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4103,7 +4103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596571672800657298}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightHandMiddle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4133,7 +4133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601561241212517744}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_Reference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4164,7 +4164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601329412229848120}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightHandThumb3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4196,7 +4196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596397172471503590}
   - component: {fileID: 703528957095984138}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_hair09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4260,7 +4260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601656349442810108}
   - component: {fileID: 706566106289413628}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt30_R_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4302,7 +4302,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596244124297664384}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: J_L_knee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4333,7 +4333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596289680187055022}
   - component: {fileID: 702733262113149536}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt20_L_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4375,7 +4375,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596550386564616296}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: J_L_Elbow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4405,7 +4405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601750674708963418}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4437,7 +4437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596574318786829924}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4467,7 +4467,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601474297964504436}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_hair03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4497,7 +4497,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596526779197280494}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_LeftHandPinky3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4528,7 +4528,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596236351345646370}
   - component: {fileID: 706507738678341634}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt31_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4590,7 +4590,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601391109528058694}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt13_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4620,7 +4620,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 601694749334484106}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Character1_RightHandThumb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4652,7 +4652,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601627462709248156}
   - component: {fileID: 703611030341895474}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Skirt31_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4714,7 +4714,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596370451204493638}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Ribbon_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4749,9 +4749,9 @@ GameObject:
   - component: {fileID: 1338975547197396276}
   - component: {fileID: 3645946944044960205}
   - component: {fileID: 63153748498871266}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Toko_sum
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4889,10 +4889,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a71462e837f84aa599be038ddaa195f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
   gameOverCamera: {fileID: 0}
-  isAttack: 0
-  resultWindow: {fileID: 0}
+  startCamera: {fileID: 0}
 --- !u!1 &600664429766258240
 GameObject:
   m_ObjectHideFlags: 0
@@ -4902,7 +4900,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596501411286100916}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: toko_hair08_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -15,7 +15,6 @@ public class PrefabGenerationManager : MonoBehaviour
     private int breadsCnt = 1;
     private int monstersCnt = 1;
 
-    private float time;
     private void Start()
     {
         

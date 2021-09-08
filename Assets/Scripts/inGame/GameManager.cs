@@ -9,13 +9,11 @@ public class GameManager : MonoBehaviour
 { 
     private Camera characterCamera;
     [SerializeField] private Camera mainCamera =default;
-    [SerializeField] private CanvasGroup resultCanvasGroup = default;
     [SerializeField] private CanvasGroup battleUICanvasGroup =default;
     [SerializeField] private GameObject missionUIObj = default;
     [SerializeField] private Text missionText =default;
     private Player player;
     [SerializeField] private GameObject[] characterPrefabs = new GameObject[4];
-    [SerializeField] private AudioManager audioManager = default;
     void Start()
     {
         StartCoroutine(GameStart());
@@ -48,8 +46,10 @@ public class GameManager : MonoBehaviour
 
         if (mission != "none")
         {
+            
             missionText.text = mission;
-            missionUIObj.transform.DOLocalMove(new Vector3(0, 1110, 0), 1f);
+            missionUIObj.SetActive(true);
+            missionUIObj.transform.DOLocalMoveX(0, 1f);
         }
 
         yield return null;

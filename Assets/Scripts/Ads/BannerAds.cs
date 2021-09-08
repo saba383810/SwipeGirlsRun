@@ -6,25 +6,39 @@ namespace Ads
 {
     public class BannerAds : MonoBehaviour
     {
-        [SerializeField] private string gameId =default; //"GameID"を入力
-        public string bannerId = "Banner_iOS";
+        private const string IOSGameID = "4279262";
+        private const string AndroidGameID = "4279263";
+        
+        private const string IOSBannerId = "Banner_iOS";
+        private const string AndroidBannerId = "Banner_Android";
+
         public bool testMode = true;
         // Start is called before the first frame update
         private void Start()
         {
-            Advertisement.Initialize(gameId, testMode);
+#if UNITY_ANDROID
+            Advertisement.Initialize(AndroidGameID, testMode);
+#elif UNITY_IOS
+            Advertisement.Initialize(IOSGameID, testMode);
+#endif
             StartCoroutine(ShowBanner());
-        
         }
 
-        private IEnumerator ShowBanner()
+        private static IEnumerator ShowBanner()
         {
             while(!Advertisement.isInitialized)
             {
-                yield return new WaitForSeconds(0.3f); // 0.3秒後に広告表示
+                yield return new WaitForSeconds(0.3f); 
             }
-            Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER); //バナーを上部中央にセット
-            Advertisement.Banner.Show(bannerId);
+            
+            Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER); 
+
+#if UNITY_ANDROID
+            Advertisement.Banner.Show(AndroidBannerId);
+#elif UNITY_IOS
+            Advertisement.Banner.Show(IOSBannerId);
+#endif
+            
         }
     }
 }

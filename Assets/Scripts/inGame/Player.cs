@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
+using Ads;
 using UnityEngine;
-using UnityEngine.Serialization;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 
@@ -31,8 +29,7 @@ public class Player : MonoBehaviour
     private GameObject nextButton;
     private GameObject retryButton;
     private string stageName;
-    
-    
+    private AudioManager audioManager;
 
     private void Awake()
     {
@@ -43,6 +40,8 @@ public class Player : MonoBehaviour
         gameOverText = GameObject.Find("GameOverText").GetComponent<CanvasGroup>();
         gameClearText = GameObject.Find("StageClearText").GetComponent<CanvasGroup>();
         missionFailedText = GameObject.Find("MissionFailedText").GetComponent<CanvasGroup>();
+
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         
         inGameUIObj = GameObject.Find("Battle");
         newRecordUIObj = GameObject.Find("NewRecord");
@@ -128,6 +127,7 @@ public class Player : MonoBehaviour
            isAttack = true;
            enemy = other.gameObject.GetComponent<Enemy>();
            enemy.HpDamage(1);
+           audioManager.SePlay(2);
            atkPoint -= 1;
            score += 10;
            Score.UpdateScore(score);
@@ -139,6 +139,7 @@ public class Player : MonoBehaviour
            }
            if (enemy.GetHp() > 0) return;
            other.gameObject.GetComponent<Enemy>().EnemyDestroy();
+           audioManager.SePlay(3);
            isAttack = false;
        }
        else
@@ -149,6 +150,7 @@ public class Player : MonoBehaviour
 
    private IEnumerator GameOver()
    {
+      
        anim.SetBool(IsDown,true);
        inGameUIObj.SetActive(false);
        gameOverCamera.gameObject.SetActive(true);
@@ -160,7 +162,8 @@ public class Player : MonoBehaviour
        nextButton.gameObject.SetActive(false);
        retryButton.gameObject.SetActive(true);
        
-       resultWindow.transform.DOMove(new Vector3(622, 1344, 0), 1);
+       resultWindow.transform.DOLocalMoveX(0, 1);
+      
       
        var stageName = SceneManager.GetActiveScene().name;
        if (PlayerPrefs.GetInt(stageName+"HighScore") < score)
@@ -178,10 +181,16 @@ public class Player : MonoBehaviour
        //スコア反映
        ResultScore.UpdateScore(score);
        
+       //広告を表示  
+       audioManager.BGMStop();
+       yield return StartCoroutine(InterstitialAds.ShowInterstitial());
+       audioManager.BGMPlay(1);
+       
    }
 
    private IEnumerator GameClear()
    {
+      
        var isMissionClear = false;
        switch (stageName)
        {
@@ -241,6 +250,7 @@ public class Player : MonoBehaviour
        resultWindow.gameObject.SetActive(true);
        nextButton.SetActive(true);
        retryButton.SetActive(false);
+       
 
        resultWindow.transform.DOMove(new Vector3(622, 1344, 0), 1);
 
@@ -257,11 +267,15 @@ public class Player : MonoBehaviour
        //スコア反映
        ResultScore.UpdateScore(score);
    
-       
+       //広告を表示  
+       audioManager.BGMStop();
+       yield return StartCoroutine(InterstitialAds.ShowInterstitial());
+       audioManager.BGMPlay(1);
        
    }
    private IEnumerator MissionFailed()
    {
+       
        anim.SetBool(IsDown,true);
        inGameUIObj.SetActive(false);
        gameOverCamera.gameObject.SetActive(true);
@@ -272,6 +286,7 @@ public class Player : MonoBehaviour
        resultWindow.gameObject.SetActive(true);
        nextButton.gameObject.SetActive(false);
        retryButton.gameObject.SetActive(true);
+       
        
        resultWindow.transform.DOMove(new Vector3(622, 1344, 0), 1);
       
@@ -287,6 +302,12 @@ public class Player : MonoBehaviour
        
        //スコア反映
        ResultScore.UpdateScore(score);
+       
+       //広告を表示  
+       audioManager.BGMStop();
+       yield return StartCoroutine(InterstitialAds.ShowInterstitial());
+       
+       audioManager.BGMPlay(1);
        
    }
 }

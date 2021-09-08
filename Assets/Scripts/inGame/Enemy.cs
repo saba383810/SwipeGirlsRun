@@ -12,7 +12,6 @@ public class Enemy : MonoBehaviour
     private static readonly int IsBattle = Animator.StringToHash("isBattle");
     [SerializeField] private ParticleSystem showParticle = default;
     [SerializeField] private ParticleSystem exceptionParticle =default;
-    
     private ParticleSystem destroyParticle;
     private void Start()
     {
@@ -23,13 +22,13 @@ public class Enemy : MonoBehaviour
         var startParticle = Instantiate(showParticle);
         startParticle.transform.position = transform.position; 
         startParticle.Play();
+        
     }
 
     public void HpDamage(int damage)
     {
         HP -= damage;
         hpText.text = HP.ToString("#,0");
-        
     }
 
     public int GetHp()
